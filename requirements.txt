@@ -1,2 +1,4 @@
 SQLAlchemy
 psycopg2-binary
+FastAPI
+uvicorn
