@@ -1,3 +1,6 @@
+from sqlalchemy.orm import joinedload
+
+from models import ChapterLanguage
 from models.chapter import Chapter
 
 
@@ -23,6 +26,14 @@ def create_many_chapters(db, data: list[dict]):
 
 def get_chapter(db, chapter_id):
     return db.query(Chapter).filter(Chapter.chapter_id == chapter_id).first()
+
+
+def get_chapters_by_norm_id(db, norm_id):
+    return (db.query(Chapter)
+            .options(joinedload(Chapter.chapter_languages)
+                     .joinedload(ChapterLanguage.languages))
+            .filter(Chapter.norm_id == norm_id)
+            .all())
 
 
 def update_chapter(db, chapter_id, data):

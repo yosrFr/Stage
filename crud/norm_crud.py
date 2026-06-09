@@ -1,3 +1,5 @@
+from sqlalchemy.orm import joinedload
+
 from models.norm import Norm
 
 
@@ -23,6 +25,12 @@ def create_many_norms(db, data: list[dict]):
 
 def get_norm(db, norm_id):
     return db.query(Norm).filter(Norm.norm_id == norm_id).first()
+
+def get_norm_with_options(db, norm_id):
+    return (db.query(Norm)
+            .options(joinedload(Norm.family_norm))
+            .filter(Norm.norm_id == norm_id)
+            .first())
 
 
 def update_norm(db, norm_id, data):

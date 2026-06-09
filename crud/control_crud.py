@@ -1,3 +1,6 @@
+from sqlalchemy.orm import joinedload
+
+from models import ControlTags, ControlLanguage, ControlTagLanguage
 from models.control import Control
 
 
@@ -23,6 +26,17 @@ def create_many_controls(db, data: list[dict]):
 
 def get_control(db, control_id):
     return db.query(Control).filter(Control.control_id == control_id).first()
+
+
+def get_controls_by_norm_id(db, norm_id):
+    return (db.query(Control)
+            .options(joinedload(Control.control_languages)
+                     .joinedload(ControlLanguage.languages) and
+                     joinedload(Control.control_tags)
+                     .joinedload(ControlTags.control_tag_languages)
+                     .joinedload(ControlTagLanguage.languages))
+            .filter(Control.norm_id == norm_id)
+            .all())
 
 
 def update_control(db, control_id, data):
