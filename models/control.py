@@ -10,7 +10,7 @@ class Control(Base):
     id = Column(String(200), nullable=False)
     norm_id = Column(Integer, ForeignKey("norms.norm_id"), nullable=False)
     category_id = Column(Integer, ForeignKey("category.category_id"), nullable=False)
-    control_tag_id = Column(Integer, ForeignKey("control_tags.control_tag_id"), nullable=False)
+    control_tag_id = Column(Integer, ForeignKey("control_tags.control_tag_id"))
     chapter_id = Column(Integer, ForeignKey("chapter.chapter_id"), nullable=False)
 
     chapter = relationship("Chapter", back_populates="controls")
