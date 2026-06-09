@@ -1,5 +1,6 @@
 from models.family_norm import FamilyNorm
 
+
 def create_family_norm(db, data):
     family_norm = FamilyNorm(**data)
     db.add(family_norm)
@@ -7,8 +8,22 @@ def create_family_norm(db, data):
     db.refresh(family_norm)
     return family_norm
 
+
+def create_many_family_norms(db, data: list[dict]):
+    many_family_norms = [FamilyNorm(**data) for data in data]
+
+    db.add_all(many_family_norms)
+    db.commit()
+
+    for family_norm in many_family_norms:
+        db.refresh(family_norm)
+
+    return many_family_norms
+
+
 def get_family_norm(db, family_norm_id):
     return db.query(FamilyNorm).filter(FamilyNorm.family_norm_id == family_norm_id).first()
+
 
 def update_family_norm(db, family_norm_id, data):
     family_norm = db.query(FamilyNorm).filter(FamilyNorm.family_norm_id == family_norm_id).first()
@@ -22,6 +37,7 @@ def update_family_norm(db, family_norm_id, data):
     db.commit()
     db.refresh(family_norm)
     return family_norm
+
 
 def delete_family_norm(db, family_norm_id):
     family_norm = db.query(FamilyNorm).filter(FamilyNorm.family_norm_id == family_norm_id).first()
