@@ -1,0 +1,227 @@
+[
+  {
+    "category_id": 1,
+    "category_name": "Information Security Policies",
+    "language_id": 1
+  },
+  {
+    "category_id": 1,
+    "category_name": "Richtlinien zur Informationssicherheit",
+    "language_id": 2
+  },
+  {
+    "category_id": 2,
+    "category_name": "Human Resources",
+    "language_id": 1
+  },
+  {
+    "category_id": 2,
+    "category_name": "Personalabteilung",
+    "language_id": 2
+  },
+  {
+    "category_id": 3,
+    "category_name": "Physical Security",
+    "language_id": 1
+  },
+  {
+    "category_id": 3,
+    "category_name": "Physische Sicherheit",
+    "language_id": 2
+  },
+  {
+    "category_id": 4,
+    "category_name": "Identity Management",
+    "language_id": 1
+  },
+  {
+    "category_id": 4,
+    "category_name": "Identitätsverwaltung",
+    "language_id": 2
+  },
+  {
+    "category_id": 5,
+    "category_name": "Cryptography",
+    "language_id": 1
+  },
+  {
+    "category_id": 5,
+    "category_name": "Kryptografie",
+    "language_id": 2
+  },
+  {
+    "category_id": 6,
+    "category_name": "Supplier Relationships",
+    "language_id": 1
+  },
+  {
+    "category_id": 6,
+    "category_name": "Lieferantenbeziehungen",
+    "language_id": 2
+  },
+  {
+    "category_id": 7,
+    "category_name": "Compliance",
+    "language_id": 1
+  },
+  {
+    "category_id": 7,
+    "category_name": "Compliance",
+    "language_id": 2
+  },
+  {
+    "category_id": 8,
+    "category_name": "Physical and Environmental Security",
+    "language_id": 1
+  },
+  {
+    "category_id": 8,
+    "category_name": "Physische und umgebungsbezogene Sicherheit",
+    "language_id": 2
+  },
+  {
+    "category_id": 9,
+    "category_name": "Data Protection Policies",
+    "language_id": 1
+  },
+  {
+    "category_id": 9,
+    "category_name": "Data Protection Policies",
+    "language_id": 2
+  },
+  {
+    "category_id": 36,
+    "category_name": "IS Risk Management",
+    "language_id": 1
+  },
+  {
+    "category_id": 37,
+    "category_name": "Incident and Crisis Management",
+    "language_id": 1
+  },
+  {
+    "category_id": 38,
+    "category_name": "Information Security Policies",
+    "language_id": 1
+  },
+  {
+    "category_id": 39,
+    "category_name": "Organization of Information Security",
+    "language_id": 1
+  },
+  {
+    "category_id": 40,
+    "category_name": "Assessments",
+    "language_id": 1
+  },
+  {
+    "category_id": 41,
+    "category_name": "Asset Management",
+    "language_id": 1
+  },
+  {
+    "category_id": 42,
+    "category_name": "Human Resources",
+    "language_id": 1
+  },
+  {
+    "category_id": 43,
+    "category_name": "Physical Security",
+    "language_id": 1
+  },
+  {
+    "category_id": 44,
+    "category_name": "Identity Management",
+    "language_id": 1
+  },
+  {
+    "category_id": 45,
+    "category_name": "Access Management",
+    "language_id": 1
+  },
+  {
+    "category_id": 46,
+    "category_name": "System acquisitions, requirement management and development",
+    "language_id": 1
+  },
+  {
+    "category_id": 47,
+    "category_name": "Cryptography",
+    "language_id": 1
+  },
+  {
+    "category_id": 48,
+    "category_name": "Operations Security",
+    "language_id": 1
+  },
+  {
+    "category_id": 49,
+    "category_name": "Supplier Relationships",
+    "language_id": 1
+  },
+  {
+    "category_id": 50,
+    "category_name": "Compliance",
+    "language_id": 1
+  },
+  {
+    "category_id": 51,
+    "category_name": "Requirements for trial vehicles",
+    "language_id": 1
+  },
+  {
+    "category_id": 52,
+    "category_name": "Handling of vehicles, components, and parts",
+    "language_id": 1
+  },
+  {
+    "category_id": 53,
+    "category_name": "Requirements for events and shootings",
+    "language_id": 1
+  },
+  {
+    "category_id": 54,
+    "category_name": "Physical and Environmental Security",
+    "language_id": 1
+  },
+  {
+    "category_id": 55,
+    "category_name": "Organizational Requirements",
+    "language_id": 1
+  },
+  {
+    "category_id": 56,
+    "category_name": "Handling requests and incidents",
+    "language_id": 1
+  },
+  {
+    "category_id": 57,
+    "category_name": "Processing directory",
+    "language_id": 1
+  },
+  {
+    "category_id": 58,
+    "category_name": "Organization of Data Protection",
+    "language_id": 1
+  },
+  {
+    "category_id": 59,
+    "category_name": "Data transfers",
+    "language_id": 1
+  },
+  {
+    "category_id": 60,
+    "category_name": "Instructions",
+    "language_id": 1
+  },
+  {
+    "category_id": 61,
+    "category_name": "Data protection impact assessment",
+    "language_id": 1
+  },
+  {
+    "category_id": 62,
+    "category_name": "Data Protection Policies",
+    "language_id": 1
+  }
+]

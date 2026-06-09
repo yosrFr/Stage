@@ -1,0 +1,18 @@
+[
+  {
+    "title": "TISAX ISA v6",
+    "abbreviation": "Information Security Directive 2",
+    "description": "Information Security at the Organization: Covers organizational responsibilities, policies, and continuous improvement for managing information security.",
+    "publish_year": 2025,
+    "family_norm_id": 1,
+    "norm_id": 1
+  },
+  {
+    "title": "TISAX NO LIGHT",
+    "abbreviation": "TISAX NO LIGHT",
+    "description": null,
+    "publish_year": 2024,
+    "family_norm_id": 1,
+    "norm_id": 3
+  }
+]

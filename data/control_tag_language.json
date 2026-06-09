@@ -1,0 +1,52 @@
+[
+  {
+    "control_tag_id": 1,
+    "language_id": 1,
+    "title": "shall"
+  },
+  {
+    "control_tag_id": 2,
+    "language_id": 1,
+    "title": "must"
+  },
+  {
+    "control_tag_id": 3,
+    "language_id": 1,
+    "title": "should"
+  },
+  {
+    "control_tag_id": 4,
+    "language_id": 1,
+    "title": "high_protection"
+  },
+  {
+    "control_tag_id": 5,
+    "language_id": 1,
+    "title": "very_high_protection"
+  },
+  {
+    "control_tag_id": 1,
+    "language_id": 2,
+    "title": "soll"
+  },
+  {
+    "control_tag_id": 2,
+    "language_id": 2,
+    "title": "muss"
+  },
+  {
+    "control_tag_id": 3,
+    "language_id": 2,
+    "title": "sollte"
+  },
+  {
+    "control_tag_id": 4,
+    "language_id": 2,
+    "title": "hoher_schutz"
+  },
+  {
+    "control_tag_id": 5,
+    "language_id": 2,
+    "title": "sehr_hoher_schutz"
+  }
+]

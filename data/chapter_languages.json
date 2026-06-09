@@ -1,0 +1,650 @@
+[
+  {
+    "chapter_id": 1,
+    "title": "Information Security Policies",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 2,
+    "title": "Organization of Information Security",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 3,
+    "title": "Asset Management",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 4,
+    "title": "IS Risk Management",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 5,
+    "title": "Assessments",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 6,
+    "title": "Incident and Crisis Management",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 7,
+    "title": "Human Resources",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 8,
+    "title": "Physical Security",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 9,
+    "title": "Identity Management",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 10,
+    "title": "Access Management",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 11,
+    "title": "Cryptography",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 12,
+    "title": "Operations Security",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 13,
+    "title": "System acquisitions, requirement management and development",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 14,
+    "title": "Supplier Relationships",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 15,
+    "title": "Compliance",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 16,
+    "title": "Physical and Environmental Security",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 17,
+    "title": "Organizational Requirements",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 18,
+    "title": "Handling of vehicles, components, and parts",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 19,
+    "title": "Requirements for trial vehicles",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 20,
+    "title": "Requirements for events and shootings",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 21,
+    "title": "Data Protection Policies",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 22,
+    "title": "Organization of Data Protection",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 23,
+    "title": "Processing directory",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 24,
+    "title": "Data protection impact assessment",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 25,
+    "title": "Data transfers",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 26,
+    "title": "Handling requests and incidents",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 27,
+    "title": "Human Resources",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 28,
+    "title": "Instructions",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 84,
+    "title": "To what extent are information security policies available?",
+    "language_id": 1,
+    "objective": "<br>- The requirements are adapted to the organization's goals,<br>- A policy is prepared and is released by the organization."
+  },
+  {
+    "chapter_id": 85,
+    "title": "To what extent is information security managed within the organization?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 86,
+    "title": "To what extent are information security responsibilities organized?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 87,
+    "title": "To what extent are information security requirements considered in projects?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 88,
+    "title": "To what extent are the responsibilities between external IT service providers and the own organization defined?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 89,
+    "title": "To what extent are information assets identified and recorded?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 90,
+    "title": "To what extent are information assets classified and managed in terms of their protection needs?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 91,
+    "title": "To what extent is it ensured that only evaluated and approved external IT services are used for processing the organization's information assets?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 92,
+    "title": "To what extent is it ensured that only evaluated and approved software is used for processing the organization's information assets?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 93,
+    "title": "To what extent are information security risks managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 94,
+    "title": "To what extent is compliance with information security ensured in procedures and processes?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 95,
+    "title": "To what extent is the ISMS reviewed by an independent authority?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 96,
+    "title": "To what extent are information security relevant events or observations reported?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 97,
+    "title": "To what extent are reported security events managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 98,
+    "title": "To what extent is the organization prepared to handle crisis situations?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 99,
+    "title": "To what extent is the qualification of employees for sensitive work fields ensured?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 100,
+    "title": "To what extent is all staff contractually bound to comply with information security policies?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 101,
+    "title": "To what extent is staff made aware of and trained with respect to the risks arising from the handling of information?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 102,
+    "title": "To what extent is mobile work regulated?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 103,
+    "title": "To what extent are security zones managed to protect information assets?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 104,
+    "title": "Superseded by 1.6.3, 5.2.8 and 5.2.9",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 105,
+    "title": "To what extent is the handling of supporting assets managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 106,
+    "title": "To what extent is the handling of mobile IT devices and mobile data storage devices managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 107,
+    "title": "To what extent is the use of identification means managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 108,
+    "title": "To what extent is the user access to IT services and IT systems secured?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 109,
+    "title": "To what extent are user accounts and login information securely managed and applied?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 110,
+    "title": "To what extent are access rights assigned and managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 111,
+    "title": "To what extent is the use of cryptographic procedures managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 112,
+    "title": "To what extent is information protected during transfer?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 113,
+    "title": "To what extent are changes managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 114,
+    "title": "To what extent are development and testing environments separated from operational environments?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 115,
+    "title": "To what extent are IT systems protected against malware?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 116,
+    "title": "To what extent are event logs recorded and analysed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 117,
+    "title": "To what extent are vulnerabilities identified and addressed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 118,
+    "title": "To what extent are IT systems and services technically checked (system and service audit)?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 119,
+    "title": "To what extent is the network of the organization managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 120,
+    "title": "To what extent is continuity planning for IT services in place?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 121,
+    "title": "To what extent is the backup and recovery of data and IT services ensured?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 122,
+    "title": "To what extent is information security considered in new or further developed IT systems?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 123,
+    "title": "To what extent are requirements for network services defined?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 124,
+    "title": "To what extent is the return and secure removal of information assets from external IT services regulated?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 125,
+    "title": "To what extent is information protected in shared external IT services?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 126,
+    "title": "To what extent is information security ensured among contractors and cooperation partners?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 127,
+    "title": "To what extent is non-disclosure regarding the exchange of information contractually agreed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 128,
+    "title": "To what extent is compliance with regulatory and contractual provisions ensured?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 129,
+    "title": "To what extent is the protection of personally identifiable data considered when implementing information security?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 130,
+    "title": "To what extent is a security concept available describing minimum requirements regarding the physical and environmental security for prototype protection?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 131,
+    "title": "To what extent is perimeter security existent preventing unauthorized access to protected property objects?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 132,
+    "title": "To what extent is the outer skin of the protected buildings constructed such as to prevent removal or opening of outer-skin components using standard tools?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 133,
+    "title": "To what extent is view and sight protection ensured in defined security areas?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 134,
+    "title": "To what extent is the protection against unauthorized entry regulated in the form of access control?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 135,
+    "title": "To what extent are the premises to be secured monitored for intrusion?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 136,
+    "title": "To what extent is a documented visitor management in place?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 137,
+    "title": "To what extent is on-site client segregation existent?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 138,
+    "title": "To what extent are non-disclosure agreements/obligations existent according to the valid contractual law?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 139,
+    "title": "To what extent are requirements for commissioning subcontractors known and fulfilled?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 140,
+    "title": "To what extent do employees and project members evidently participate in training and awareness measures regarding the handling of prototypes?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 141,
+    "title": "To what extent are security classifications of the project and the resulting security measures known?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 142,
+    "title": "To what extent is a process defined for granting access to security areas?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 143,
+    "title": "To what extent are regulations for image recording and handling of created image material existent?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 144,
+    "title": "To what extent is a process for carrying along and using mobile video and photography devices in(to) defined security areas established?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 145,
+    "title": "To what extent are transports of vehicles, components or parts classified as requiring protection arranged according to the customer requirements?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 146,
+    "title": "To what extent is it ensured that vehicles, components, and parts classified as requiring protection are parked/stored in accordance with customer requirements?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 147,
+    "title": "To what extent are the predefined camouflage regulations implemented by the project members?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 148,
+    "title": "To what extent are measures for protecting approved test and trial grounds observed/implemented?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 149,
+    "title": "To what extent are protective measures for approved test and trial drives in public observed/implemented?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 150,
+    "title": "To what extent are security requirements for presentations and events involving vehicles, components or parts classified as requiring protection known?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 151,
+    "title": "To what extent are the protective measures for film and photo shootings involving vehicles, components or parts classified as requiring protection known?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 152,
+    "title": "To what extent do data protection policies exist?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 153,
+    "title": "To what extent are the responsibilities for data protection organized?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 154,
+    "title": "To what extent are processing activities identified and recorded?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 155,
+    "title": "To what extent is adequate handling of high-risk processing activities ensured (data protection impact assessment)?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 156,
+    "title": "To what extent is the transfer of data managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 157,
+    "title": "To what extent are contractual obligations passed through to and enforced at subcontractors and cooperation partners?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 158,
+    "title": "To what extent are data transfers to third countries managed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 159,
+    "title": "To what extent are data subject requests processed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 160,
+    "title": "To what extent are data protection incidents processed?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 161,
+    "title": "To what extent are employees obliged to maintain confidentiality?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 162,
+    "title": "To what extent are employees trained in data protection?",
+    "language_id": 1,
+    "objective": ""
+  },
+  {
+    "chapter_id": 163,
+    "title": "To what extent are instructions of processing relationships handled?",
+    "language_id": 1,
+    "objective": ""
+  }
+]
