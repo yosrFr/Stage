@@ -38,8 +38,12 @@ def get_norm_controls(db, norm_id):
         control_dict = {
             "control_id": control.control_id,
             "id": control.id,
+            "norm_id": control.norm_id,
+            "category_id": control.category_id,
+            "chapter_id": control.chapter_id,
+            "control_tag_id": control.control_tag_id,
             "control_language": [],
-            "control_tags": []
+            "control_tag_languages": []
         }
 
         for c in control.control_languages:
@@ -53,14 +57,12 @@ def get_norm_controls(db, norm_id):
         result_controls.append(control_dict)
 
         if control.control_tags:
-            for c in control.control_tags:
-                control_dict["control_tags"].append({
-                    "control_tag_id": c.control_tag_id,
-                    "control_tag_language": {
-                        "title": c.control_tags.title,
-                        "language_id": c.control_tags.language_id,
-                        "language": c.control_tags.language.language
-                    }
+
+            for lang in control.control_tags.control_tag_languages:
+                control_dict["control_tag_languages"].append({
+                    "title": lang.title,
+                    "language_id": lang.language_id,
+                    "language": lang.languages.language
                 })
 
     return result_controls
