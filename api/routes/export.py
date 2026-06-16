@@ -8,15 +8,18 @@ from sqlalchemy.orm import Session
 from database.session import get_db
 from services.export_service import get_all_norm_info
 
-router = APIRouter()
+router = APIRouter(prefix="/export", tags=["export"])
 
 
-@router.get("/export_all/{norm_id}")
+@router.get(
+    "/export_all/{norm_id}",
+    summary="Exports the data from the database into a JSON file",
+    description="Exports the data of a specific norm from the database into a JSON file"
+)
 def export_all(norm_id: int, db: Session = Depends(get_db)):
     data = get_all_norm_info(db, norm_id)
 
     file_path = Path(f"exports/norm_{norm_id}.json")
-
     file_path.parent.mkdir(parents=True, exist_ok=True)
 
     with open(file_path, "w", encoding="utf-8") as f:
