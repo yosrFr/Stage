@@ -151,6 +151,10 @@ def get_or_create_chapter(db, item, norm_id):
 
 
 def upsert_chapter_language(db, chapter_id, chapter_language):
+    """
+    Insert a ChapterLanguage row if it doesn't exist.
+    If it does, only 'objective' is updated
+    """
     language = get_or_create_language(db, chapter_language["language"])
 
     exists = (db.query(ChapterLanguage)
@@ -208,6 +212,10 @@ def get_or_create_control(db, item, norm_id, category_map, chapter_map):
 
 
 def upsert_control_language(db, control_id, control_language):
+    """
+    Insert a ControlLanguage row if it doesn't exist.
+    If it does, only 'description' is updated.
+    """
     language = get_or_create_language(db, control_language["language"])
 
     exists = ((db.query(ControlLanguage)
@@ -228,6 +236,16 @@ def upsert_control_language(db, control_id, control_language):
 
 
 def import_controls(db, norm_id, controls, chapter_map, category_map):
+    """
+    Upsert controls and their language entries for a given norm
+
+    For each control :
+    - If the control doesn't exist, it creates it.
+    - It processes control_language and control_tag_language by inserting new ones and updating existing ones.
+
+    :param chapter_map: dict containing the link between json_id and database_id produced by 'import_chapters'
+    :param category_map: dict containing the link between json_id and category_id produced by 'import_chapters'
+    """
     for item in controls:
         control = get_or_create_control(db, item, norm_id, category_map, chapter_map)
 
@@ -240,6 +258,14 @@ def import_controls(db, norm_id, controls, chapter_map, category_map):
 
 
 def import_norm(db, data):
+    """
+    Import a norm from a JSON file
+
+    :param db: SQLAlchemy database session
+    :param data: Parsed JSON dictionary having the same schema as the norm
+    :return: {"message": "Import done"} on success
+    :raises HTTPException: If an error occurs during the import, after the rollback.
+    """
     try:
         family_norm = get_or_create_family_norm(db, data["family_norm"]["name"])
         norm = get_or_create_norm(db, data, family_norm.family_norm_id)
