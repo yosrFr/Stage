@@ -14,7 +14,7 @@ from crud.norm_crud import create_norm
 db = SessionLocal()
 
 create_family_norm(db, {
-    "name" : "TISAX"
+    "name": "TISAX"
 })
 
 create_norm(db, {
@@ -26,54 +26,54 @@ create_norm(db, {
 })
 
 create_chapter(db, {
-    "id" : "1.1",
-    "norm_id" : 1
+    "id": "1.1",
+    "norm_id": 1
 })
 
 create_control_tag(db, {
 })
 
 create_category(db, {
-    "id" : "1.1",
-    "norm_id" : 1
+    "id": "1.1",
+    "norm_id": 1
 })
 
 create_control(db, {
-    "id" : "1.1",
-    "norm_id" : 1,
-    "category_id" : 1,
-    "control_tag_id" : 1,
-    "chapter_id" : 1
+    "id": "1.1",
+    "norm_id": 1,
+    "category_id": 1,
+    "control_tag_id": 1,
+    "chapter_id": 1
 })
 
 create_language(db, {
-    "language" : "english"
+    "language": "english"
 })
 
 create_control_tag_language(db, {
-    "control_tag_id" : 1,
-    "language_id" : 1,
-    "title" : ""
+    "control_tag_id": 1,
+    "language_id": 1,
+    "title": ""
 })
 
 create_chapter_language(db, {
-    "chapter_id" : 1,
-    "language_id" : 1,
-    "title" : "Information Security Policies",
-    "objective" : ""
+    "chapter_id": 1,
+    "language_id": 1,
+    "title": "Information Security Policies",
+    "objective": ""
 })
 
 create_category_language(db, {
-    "category_id" : 1,
-    "language_id" : 1,
-    "category_name" : "english",
+    "category_id": 1,
+    "language_id": 1,
+    "category_name": "english",
 })
 
 create_control_language(db, {
-    "control_id" : 1,
-    "language_id" : 1,
-    "title" : "",
-    "description" : ""
+    "control_id": 1,
+    "language_id": 1,
+    "title": "",
+    "description": ""
 })
 
 db.close()
