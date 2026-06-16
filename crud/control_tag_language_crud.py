@@ -2,11 +2,13 @@ from models.control_tag_language import ControlTagLanguage
 
 
 def create_control_tag_language(db, data):
-    controlTagLanguage = ControlTagLanguage(**data)
-    db.add(controlTagLanguage)
+    control_tag_language = ControlTagLanguage(**data)
+
+    db.add(control_tag_language)
     db.commit()
-    db.refresh(controlTagLanguage)
-    return controlTagLanguage
+    db.refresh(control_tag_language)
+
+    return control_tag_language
 
 
 def create_many_control_tag_languages(db, data: list[dict]):
@@ -29,30 +31,25 @@ def get_control_tag_language(db, control_tag_id, language_id):
 
 
 def update_control_tag_language(db, control_tag_id, language_id, data):
-    controlTagLanguage = (db.query(ControlTagLanguage)
-                          .filter(ControlTagLanguage.control_tag_id == control_tag_id and
-                                  ControlTagLanguage.language_id == language_id)
-                          .first())
+    control_tag_language = get_control_tag_language(db, control_tag_id, language_id)
 
-    if not controlTagLanguage:
+    if not control_tag_language:
         return None
 
     for key, value in data.items():
-        setattr(controlTagLanguage, key, value)
+        setattr(control_tag_language, key, value)
 
     db.commit()
-    db.refresh(controlTagLanguage)
-    return controlTagLanguage
+    db.refresh(control_tag_language)
+
+    return control_tag_language
 
 
-def delete_control_tag_language(db, control_tag_id, language_id, data):
-    controlTagLanguage = (db.query(ControlTagLanguage)
-                          .filter(ControlTagLanguage.control_tag_id == control_tag_id and
-                                  ControlTagLanguage.language_id == language_id)
-                          .first())
+def delete_control_tag_language(db, control_tag_id, language_id):
+    control_tag_language = get_control_tag_language(db, control_tag_id, language_id)
 
-    if controlTagLanguage:
-        db.delete(controlTagLanguage)
+    if control_tag_language:
+        db.delete(control_tag_language)
         db.commit()
 
-    return controlTagLanguage
+    return control_tag_language

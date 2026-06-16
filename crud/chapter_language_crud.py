@@ -2,11 +2,13 @@ from models.chapter_language import ChapterLanguage
 
 
 def create_chapter_language(db, data):
-    chapterLanguage = ChapterLanguage(**data)
-    db.add(chapterLanguage)
+    chapter_language = ChapterLanguage(**data)
+
+    db.add(chapter_language)
     db.commit()
-    db.refresh(chapterLanguage)
-    return chapterLanguage
+    db.refresh(chapter_language)
+
+    return chapter_language
 
 
 def create_many_chapter_languages(db, data: list[dict]):
@@ -29,30 +31,25 @@ def get_chapter_language(db, chapter_id, language_id):
 
 
 def update_chapter_language(db, chapter_id, language_id, data):
-    chapterLanguage = (db.query(ChapterLanguage)
-                       .filter(ChapterLanguage.chapter_id == chapter_id and
-                               ChapterLanguage.language_id == language_id)
-                       .first())
+    chapter_language = get_chapter_language(db, chapter_id, language_id)
 
-    if not chapterLanguage:
+    if not chapter_language:
         return None
 
     for key, value in data.items():
-        setattr(chapterLanguage, key, value)
+        setattr(chapter_language, key, value)
 
     db.commit()
-    db.refresh(chapterLanguage)
-    return chapterLanguage
+    db.refresh(chapter_language)
+
+    return chapter_language
 
 
-def delete_chapter_language(db, chapter_id, language_id, data):
-    chapterLanguage = (db.query(ChapterLanguage)
-                       .filter(ChapterLanguage.chapter_id == chapter_id and
-                               ChapterLanguage.language_id == language_id)
-                       .first())
+def delete_chapter_language(db, chapter_id, language_id):
+    chapter_language = get_chapter_language(db, chapter_id, language_id)
 
-    if chapterLanguage:
-        db.delete(chapterLanguage)
+    if chapter_language:
+        db.delete(chapter_language)
         db.commit()
 
-    return chapterLanguage
+    return chapter_language

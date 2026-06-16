@@ -6,9 +6,11 @@ from models.control import Control
 
 def create_control(db, data):
     control = Control(**data)
+
     db.add(control)
     db.commit()
     db.refresh(control)
+
     return control
 
 
@@ -40,7 +42,7 @@ def get_controls_by_norm_id(db, norm_id):
 
 
 def update_control(db, control_id, data):
-    control = db.query(Control).filter(Control.control_id == control_id).first()
+    control = get_control(db, control_id)
 
     if not control:
         return None
@@ -50,11 +52,12 @@ def update_control(db, control_id, data):
 
     db.commit()
     db.refresh(control)
+
     return control
 
 
 def delete_control(db, control_id):
-    control = db.query(Control).filter(Control.control_id == control_id).first()
+    control = get_control(db, control_id)
 
     if control:
         db.delete(control)

@@ -3,9 +3,11 @@ from models.family_norm import FamilyNorm
 
 def create_family_norm(db, data):
     family_norm = FamilyNorm(**data)
+
     db.add(family_norm)
     db.commit()
     db.refresh(family_norm)
+
     return family_norm
 
 
@@ -26,7 +28,7 @@ def get_family_norm(db, family_norm_id):
 
 
 def update_family_norm(db, family_norm_id, data):
-    family_norm = db.query(FamilyNorm).filter(FamilyNorm.family_norm_id == family_norm_id).first()
+    family_norm = get_family_norm(db, family_norm_id)
 
     if not family_norm:
         return None
@@ -36,11 +38,12 @@ def update_family_norm(db, family_norm_id, data):
 
     db.commit()
     db.refresh(family_norm)
+
     return family_norm
 
 
 def delete_family_norm(db, family_norm_id):
-    family_norm = db.query(FamilyNorm).filter(FamilyNorm.family_norm_id == family_norm_id).first()
+    family_norm = get_family_norm(db, family_norm_id)
 
     if family_norm:
         db.delete(family_norm)

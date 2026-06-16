@@ -2,11 +2,13 @@ from models.category_language import CategoryLanguage
 
 
 def create_category_language(db, data):
-    categoryLanguage = CategoryLanguage(**data)
-    db.add(categoryLanguage)
+    category_language = CategoryLanguage(**data)
+
+    db.add(category_language)
     db.commit()
-    db.refresh(categoryLanguage)
-    return categoryLanguage
+    db.refresh(category_language)
+
+    return category_language
 
 
 def create_many_category_languages(db, data: list[dict]):
@@ -29,30 +31,25 @@ def get_category_language(db, category_id, language_id):
 
 
 def update_category_language(db, category_id, language_id, data):
-    categoryLanguage = (db.query(CategoryLanguage)
-                        .filter(CategoryLanguage.category_id == category_id and
-                                CategoryLanguage.language_id == language_id)
-                        .first())
+    category_language = get_category_language(db, category_id, language_id)
 
-    if not categoryLanguage:
+    if not category_language:
         return None
 
     for key, value in data.items():
-        setattr(categoryLanguage, key, value)
+        setattr(category_language, key, value)
 
     db.commit()
-    db.refresh(categoryLanguage)
-    return categoryLanguage
+    db.refresh(category_language)
+
+    return category_language
 
 
-def delete_category_language(db, category_id, language_id, data):
-    categoryLanguage = (db.query(CategoryLanguage)
-                        .filter(CategoryLanguage.category_id == category_id and
-                                CategoryLanguage.language_id == language_id)
-                        .first())
+def delete_category_language(db, category_id, language_id):
+    category_language = get_category_language(db, category_id, language_id)
 
-    if categoryLanguage:
-        db.delete(categoryLanguage)
+    if category_language:
+        db.delete(category_language)
         db.commit()
 
-    return categoryLanguage
+    return category_language

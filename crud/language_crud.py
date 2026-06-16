@@ -3,9 +3,11 @@ from models.language import Language
 
 def create_language(db, data):
     language = Language(**data)
+
     db.add(language)
     db.commit()
     db.refresh(language)
+
     return language
 
 
@@ -26,7 +28,7 @@ def get_language(db, language_id):
 
 
 def update_language(db, language_id, data):
-    language = db.query(Language).filter(Language.language_id == language_id).first()
+    language = get_language(db, language_id)
 
     if not language:
         return None
@@ -36,11 +38,12 @@ def update_language(db, language_id, data):
 
     db.commit()
     db.refresh(language)
+
     return language
 
 
 def delete_language(db, language_id):
-    language = db.query(Language).filter(Language.language_id == language_id).first()
+    language = get_language(db, language_id)
 
     if language:
         db.delete(language)

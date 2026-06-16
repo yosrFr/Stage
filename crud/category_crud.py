@@ -6,9 +6,11 @@ from models.category import Category
 
 def create_category(db, data):
     category = Category(**data)
+
     db.add(category)
     db.commit()
     db.refresh(category)
+
     return category
 
 
@@ -38,7 +40,7 @@ def get_categories_by_norm_id(db, norm_id):
 
 
 def update_category(db, category_id, data):
-    category = db.query(Category).filter(Category.category_id == category_id).first()
+    category = get_category(db, category_id)
 
     if not category:
         return None
@@ -48,11 +50,12 @@ def update_category(db, category_id, data):
 
     db.commit()
     db.refresh(category)
+
     return category
 
 
 def delete_category(db, category_id):
-    category = db.query(Category).filter(Category.category_id == category_id).first()
+    category = get_category(db, category_id)
 
     if category:
         db.delete(category)

@@ -5,9 +5,11 @@ from models.norm import Norm
 
 def create_norm(db, data):
     norm = Norm(**data)
+
     db.add(norm)
     db.commit()
     db.refresh(norm)
+
     return norm
 
 
@@ -26,6 +28,7 @@ def create_many_norms(db, data: list[dict]):
 def get_norm(db, norm_id):
     return db.query(Norm).filter(Norm.norm_id == norm_id).first()
 
+
 def get_norm_with_options(db, norm_id):
     return (db.query(Norm)
             .options(joinedload(Norm.family_norm))
@@ -34,7 +37,7 @@ def get_norm_with_options(db, norm_id):
 
 
 def update_norm(db, norm_id, data):
-    norm = db.query(Norm).filter(Norm.norm_id == norm_id).first()
+    norm = get_norm_with_options(db, norm_id)
 
     if not norm:
         return None
@@ -44,11 +47,12 @@ def update_norm(db, norm_id, data):
 
     db.commit()
     db.refresh(norm)
+
     return norm
 
 
 def delete_norm(db, norm_id):
-    norm = db.query(Norm).filter(Norm.norm_id == norm_id).first()
+    norm = get_norm_with_options(db, norm_id)
 
     if norm:
         db.delete(norm)

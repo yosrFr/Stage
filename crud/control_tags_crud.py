@@ -2,11 +2,13 @@ from models.control_tags import ControlTags
 
 
 def create_control_tag(db, data):
-    controlTag = ControlTags(**data)
-    db.add(controlTag)
+    control_tag = ControlTags(**data)
+
+    db.add(control_tag)
     db.commit()
-    db.refresh(controlTag)
-    return controlTag
+    db.refresh(control_tag)
+
+    return control_tag
 
 
 def create_many_control_tags(db, data: list[dict]):
@@ -26,10 +28,10 @@ def get_control_tag(db, control_tag_id):
 
 
 def delete_control_tag(db, control_tag_id):
-    controlTag = db.query(ControlTags).filter(ControlTags.control_tag_id == control_tag_id).first()
+    control_tag = get_control_tag(db, control_tag_id)
 
-    if controlTag:
-        db.delete(controlTag)
+    if control_tag:
+        db.delete(control_tag)
         db.commit()
 
-    return controlTag
+    return control_tag

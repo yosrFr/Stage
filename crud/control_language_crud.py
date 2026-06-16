@@ -2,11 +2,13 @@ from models.control_language import ControlLanguage
 
 
 def create_control_language(db, data):
-    controlLanguage = ControlLanguage(**data)
-    db.add(controlLanguage)
+    control_language = ControlLanguage(**data)
+
+    db.add(control_language)
     db.commit()
-    db.refresh(controlLanguage)
-    return controlLanguage
+    db.refresh(control_language)
+
+    return control_language
 
 
 def create_many_control_languages(db, data: list[dict]):
@@ -29,30 +31,25 @@ def get_control_language(db, control_id, language_id):
 
 
 def update_control_language(db, control_id, language_id, data):
-    controlLanguage = (db.query(ControlLanguage)
-                       .filter(ControlLanguage.control_id == control_id and
-                               ControlLanguage.language_id == language_id)
-                       .first())
+    control_language = get_control_language(db, control_id, language_id)
 
-    if not controlLanguage:
+    if not control_language:
         return None
 
     for key, value in data.items():
-        setattr(controlLanguage, key, value)
+        setattr(control_language, key, value)
 
     db.commit()
-    db.refresh(controlLanguage)
-    return controlLanguage
+    db.refresh(control_language)
+
+    return control_language
 
 
-def delete_control_language(db, control_id, language_id, data):
-    controlLanguage = (db.query(ControlLanguage)
-                       .filter(ControlLanguage.control_id == control_id and
-                               ControlLanguage.language_id == language_id)
-                       .first())
+def delete_control_language(db, control_id, language_id):
+    control_language = get_control_language(db, control_id, language_id)
 
-    if controlLanguage:
-        db.delete(controlLanguage)
+    if control_language:
+        db.delete(control_language)
         db.commit()
 
-    return controlLanguage
+    return control_language

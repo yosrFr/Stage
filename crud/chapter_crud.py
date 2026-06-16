@@ -6,9 +6,11 @@ from models.chapter import Chapter
 
 def create_chapter(db, data):
     chapter = Chapter(**data)
+
     db.add(chapter)
     db.commit()
     db.refresh(chapter)
+
     return chapter
 
 
@@ -37,7 +39,7 @@ def get_chapters_by_norm_id(db, norm_id):
 
 
 def update_chapter(db, chapter_id, data):
-    chapter = db.query(Chapter).filter(Chapter.chapter_id == chapter_id).first()
+    chapter = get_chapter(db, chapter_id)
 
     if not chapter:
         return None
@@ -47,11 +49,12 @@ def update_chapter(db, chapter_id, data):
 
     db.commit()
     db.refresh(chapter)
+
     return chapter
 
 
 def delete_chapter(db, chapter_id):
-    chapter = db.query(Chapter).filter(Chapter.chapter_id == chapter_id).first()
+    chapter = get_chapter(db, chapter_id)
 
     if chapter:
         db.delete(chapter)
