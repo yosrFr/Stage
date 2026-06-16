@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class CategoryLanguage(Base):
-    __tablename__ ='category_language'
+    __tablename__ = 'category_language'
 
     category_id = Column(Integer, ForeignKey("category.category_id"), primary_key=True)
     language_id = Column(Integer, ForeignKey("language.language_id"), primary_key=True)

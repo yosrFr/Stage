@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class Category(Base):
-    __tablename__ ='category'
+    __tablename__ = 'category'
 
     category_id = Column(Integer, primary_key=True)
     id = Column(String, nullable=False)

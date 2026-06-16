@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class Norm(Base):
-    __tablename__ ='norms'
+    __tablename__ = 'norms'
 
     norm_id = Column(Integer, primary_key=True)
     title = Column(String(200), nullable=False, unique=True)

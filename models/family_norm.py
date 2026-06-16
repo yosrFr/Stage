@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class FamilyNorm(Base):
-    __tablename__ ='family_norm'
+    __tablename__ = 'family_norm'
 
     family_norm_id = Column(Integer, primary_key=True)
     name = Column(String(200), unique=True, nullable=False)

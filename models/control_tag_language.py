@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class ControlTagLanguage(Base):
-    __tablename__ ='control_tag_language'
+    __tablename__ = 'control_tag_language'
 
     control_tag_id = Column(Integer, ForeignKey('control_tags.control_tag_id'), primary_key=True)
     language_id = Column(Integer, ForeignKey('language.language_id'), primary_key=True)

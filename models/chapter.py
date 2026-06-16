@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class Chapter(Base):
-    __tablename__ ='chapter'
+    __tablename__ = 'chapter'
 
     chapter_id = Column(Integer, primary_key=True)
     id = Column(String(200), nullable=False)

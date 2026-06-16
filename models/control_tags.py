@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class ControlTags(Base):
-    __tablename__ ='control_tags'
+    __tablename__ = 'control_tags'
 
     control_tag_id = Column(Integer, primary_key=True)
 
