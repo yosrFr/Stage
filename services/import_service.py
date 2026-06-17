@@ -36,7 +36,8 @@ def get_or_create_norm(db, data, family_norm_id):
     if norm:
         return norm
 
-    nrom = Norm(
+    norm = Norm(
+        norm_id=data["norm_id"],
         title=data["title"],
         description=data["description"],
         abbreviation=data["abbreviation"],
@@ -44,10 +45,10 @@ def get_or_create_norm(db, data, family_norm_id):
         family_norm_id=family_norm_id
     )
 
-    db.add(nrom)
+    db.add(norm)
     db.flush()
 
-    return nrom
+    return norm
 
 
 def get_or_create_control_tag(db, control_tag_id):
@@ -118,8 +119,8 @@ def upsert_category_language(db, category_id, category_language):
 
     db.add(CategoryLanguage(
         category_id=category_id,
-        language_id=language.language_id),
-        category_name=category_language["category_name"]
+        language_id=language.language_id,
+        category_name=category_language["category_name"])
     )
 
 
@@ -254,7 +255,7 @@ def import_controls(db, norm_id, controls, chapter_map, category_map):
 
         control_tag_id = item.get("control_tag_id")
         if control_tag_id and item.get("control_tag_languages"):
-            import_control_tag_languages(db, control_tag_id, item.get["control_tag_languages"])
+            import_control_tag_languages(db, control_tag_id, item.get("control_tag_languages"))
 
 
 def import_norm(db, data):
