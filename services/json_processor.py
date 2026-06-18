@@ -1,6 +1,14 @@
+import logging
+
 from services.rewrite_engine import rewrite_value
 
 TARGET_FIELDS = {"description", "objective"}
+
+logging.basicConfig(
+    filename="paraphrase.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def process_json(obj) -> None:
@@ -17,13 +25,19 @@ def process_json(obj) -> None:
             if key in TARGET_FIELDS and isinstance(value, str) and value.strip():
                 rewritten = rewrite_value(value)
                 # Only overwrite if the model output passes validation, otherwise, the original value is preserved
-                obj[key] = rewritten if is_valid_output(value, rewritten) else value
+                if is_valid_output(value, rewritten):
+                    obj[key] = rewritten
+                else:
+                    logging.info(f"Model output is invalid, the original value is unchanged. Original text: {value}")
+                    obj[key] = value
             else:
                 process_json(value)
 
     elif isinstance(obj, list):
         for item in obj:
             process_json(item)
+
+    logging.shutdown()
 
 
 def is_valid_output(original: str, rewritten: str) -> bool:
@@ -50,4 +64,9 @@ def is_valid_output(original: str, rewritten: str) -> bool:
     # Reject outputs with specific artifacts
     if any(artifact in rewritten for artifact in ["/think", "<think>", "It seems like your message"]):
         return False
+
+    # If the only difference between the Input and the Output is <br><br> at the end
+    if original == rewritten + "<br><br>":
+        return False
+
     return True
