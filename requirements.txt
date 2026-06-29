@@ -3,3 +3,5 @@ psycopg2-binary
 FastAPI
 uvicorn
 requests
+reptor
+python-dotenv
