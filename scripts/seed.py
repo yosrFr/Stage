@@ -11,6 +11,10 @@ from crud.control_tags_crud import create_many_control_tags
 from crud.family_norm_crud import create_many_family_norms
 from crud.norm_crud import create_many_norms
 from crud.language_crud import create_many_languages
+from crud.measure_crud import create_many_measures
+from crud.finding_crud import create_many_findings
+from crud.questionResponse_crud import create_many_question_responses
+from crud.responseFinding_crud import create_many_response_findings
 from database.session import SessionLocal
 
 db = SessionLocal()
@@ -80,5 +84,29 @@ with open("../data/control_languages.json", "r", encoding="utf-8") as f:
     control_languages = json.load(f)
 
 create_many_control_languages(db, control_languages)
+
+# Populate the table question_response
+with open("../data/questionResponses.json", "r", encoding="utf-8") as f:
+    question_responses = json.load(f)
+
+create_many_question_responses(db, question_responses)
+
+# Populate the table measure
+with open("../data/measures.json", "r", encoding="utf-8") as f:
+    measures = json.load(f)
+
+create_many_measures(db, measures)
+
+# Populate the table finding
+with open("../data/findings.json", "r", encoding="utf-8") as f:
+    findings = json.load(f)
+
+create_many_findings(db, findings)
+
+# Populate the table response_finding
+with open("../data/responseFindings.json", "r", encoding="utf-8") as f:
+    response_findings = json.load(f)
+
+create_many_response_findings(db, response_findings)
 
 db.close()
