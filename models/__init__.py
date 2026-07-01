@@ -10,3 +10,7 @@ from .control_tags import ControlTags
 from .family_norm import FamilyNorm
 from .language import Language
 from .norm import Norm
+from .finding import Finding
+from .measure import Measure
+from .questionResponse import QuestionResponse
+from .responseFinding import ResponseFinding
