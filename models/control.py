@@ -18,3 +18,5 @@ class Control(Base):
     control_tags = relationship("ControlTags", back_populates="controls")
     norms = relationship("Norm", back_populates="controls")
     control_languages = relationship("ControlLanguage", back_populates="control")
+
+    question_responses = relationship("QuestionResponse", back_populates="control")
