@@ -1,0 +1,37 @@
+[
+  {
+    "finding_id": 1,
+    "finding_text": "first finding",
+    "show_as_suggestion": true
+  },
+  {
+    "finding_id": 2,
+    "finding_text": "second finding",
+    "show_as_suggestion": false
+  },
+  {
+    "finding_id": 3,
+    "finding_text": "third finding",
+    "show_as_suggestion": true
+  },
+  {
+    "finding_id": 4,
+    "finding_text": "forth finding",
+    "show_as_suggestion": false
+  },
+  {
+    "finding_id": 5,
+    "finding_text": "fifth finding",
+    "show_as_suggestion": true
+  },
+  {
+    "finding_id": 6,
+    "finding_text": "sixth finding",
+    "show_as_suggestion": false
+  },
+  {
+    "finding_id": 7,
+    "finding_text": "seventh finding",
+    "show_as_suggestion": true
+  }
+]

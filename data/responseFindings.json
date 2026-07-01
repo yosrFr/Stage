@@ -1,0 +1,30 @@
+[
+  {
+    "response_id": 1,
+    "finding_id": 1
+  },
+  {
+    "response_id": 2,
+    "finding_id": 2
+  },
+  {
+    "response_id": 3,
+    "finding_id": 3
+  },
+  {
+    "response_id": 4,
+    "finding_id": 4
+  },
+  {
+    "response_id": 5,
+    "finding_id": 5
+  },
+  {
+    "response_id": 6,
+    "finding_id": 6
+  },
+  {
+    "response_id": 7,
+    "finding_id": 7
+  }
+]
