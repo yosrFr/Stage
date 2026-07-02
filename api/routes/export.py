@@ -6,13 +6,13 @@ from fastapi.params import Depends
 from sqlalchemy.orm import Session
 
 from database.session import get_db
-from services.export_service import get_all_norm_info
+from services.database.export_service import get_all_norm_info
 
-router = APIRouter(prefix="/export", tags=["export"])
+router = APIRouter(prefix="/export_all", tags=["export"])
 
 
 @router.get(
-    "/export_all/{norm_id}",
+    "/{norm_id}",
     summary="Exports the data from the database into a JSON file",
     description="Exports the data of a specific norm from the database into a JSON file"
 )
