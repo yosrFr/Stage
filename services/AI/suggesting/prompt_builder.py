@@ -2,9 +2,14 @@ import textwrap
 import re
 from langdetect import detect, DetectorFactory
 
+# Set a seed value for the random number generator used by language detection algorithm.
+# To ensure that the language detection results are consistent every time the code runs.
 DetectorFactory.seed = 0
 
 def detect_language(text: str) -> str:
+    """
+    Detects the language of a text and verify if the detected language is correct.
+    """
     try:
         lang = detect(text)
     except Exception:
