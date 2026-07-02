@@ -1,37 +1,37 @@
 [
   {
     "finding_id": 1,
-    "finding_text": "first finding",
+    "finding_text": "Administrative accounts used to access internal servers are protected only by usernames and passwords. Multi-factor authentication (MFA) is not enforced for privileged users.",
     "show_as_suggestion": true
   },
   {
     "finding_id": 2,
-    "finding_text": "second finding",
+    "finding_text": "Several user accounts belonging to former employees remain active in the Active Directory.",
     "show_as_suggestion": false
   },
   {
     "finding_id": 3,
-    "finding_text": "third finding",
+    "finding_text": "The organization has no evidence that annual information security awareness training is mandatory for all employees.",
     "show_as_suggestion": true
   },
   {
     "finding_id": 4,
-    "finding_text": "forth finding",
+    "finding_text": "Multiple workstations are running unsupported versions of Windows.",
     "show_as_suggestion": false
   },
   {
     "finding_id": 5,
-    "finding_text": "fifth finding",
+    "finding_text": "The current password policy allows passwords as short as six characters without complexity requirements.",
     "show_as_suggestion": true
   },
   {
     "finding_id": 6,
-    "finding_text": "sixth finding",
+    "finding_text": "Backups are performed daily, but restoration tests are not documented or periodically executed.",
     "show_as_suggestion": false
   },
   {
     "finding_id": 7,
-    "finding_text": "seventh finding",
+    "finding_text": "Loss or theft of removable media could expose confidential customer information.",
     "show_as_suggestion": true
   }
 ]
