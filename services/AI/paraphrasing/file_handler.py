@@ -1,4 +1,4 @@
-from services.json_processor import process_json
+from services.AI.paraphrasing.json_processor import process_json
 
 
 def rewrite_json(data: dict | list) -> dict | list:

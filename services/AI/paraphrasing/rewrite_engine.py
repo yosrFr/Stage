@@ -1,10 +1,10 @@
 import re
 
-from services.ollama_client import generate_text
-from services.prompt_builder import build_rewrite_prompt
+from services.AI.ollama_client import generate_text
+from services.AI.paraphrasing.prompt_builder import build_rewrite_prompt
 
 
-def rewrite_value(text: str) -> str:
+def rewrite_value(text: str, expected_lang: str) -> str:
     """
     Paraphrases a text using the configured model
     Builds a prompt from the input text,
@@ -12,7 +12,7 @@ def rewrite_value(text: str) -> str:
     removes know model putput artifacts from the generated text
     and cleans the response before returning
     """
-    prompt = build_rewrite_prompt(text)
+    prompt = build_rewrite_prompt(text, expected_lang=expected_lang)
     result = generate_text(prompt)
 
     # Remove <think>...</think> blocks including any content inside

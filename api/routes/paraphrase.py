@@ -4,7 +4,7 @@ from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, UploadFile, File
 
-from services.file_handler import rewrite_json
+from services.AI.paraphrasing.file_handler import rewrite_json
 
 router = APIRouter(prefix="/paraphrase", tags=["paraphrase"])
 
@@ -32,7 +32,7 @@ async def paraphrase(file: UploadFile = File(...)):
     output_filename = file.filename.replace(".json", "_paraphrased.json")
 
     output_dir = Path("exports")
-    output_dir.parent.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     output_file = output_dir / output_filename
 
