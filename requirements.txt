@@ -6,3 +6,4 @@ requests
 reptor
 python-dotenv
 langdetect
+pymupdf4llm
