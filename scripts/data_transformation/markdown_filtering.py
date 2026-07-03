@@ -27,7 +27,6 @@ def extract_specific_section(
     result = []
     inside_range = False
     inside_section = False
-    current_paragraph_title = None
 
     i = 0
     while i < len(tokens):
@@ -45,12 +44,10 @@ def extract_specific_section(
 
             if inside_range:
                 if level == 2:
-                    current_chapter = text
-                    result.append(f"## {current_chapter}\n")
+                    result.append(f"## {text}\n")
 
                 elif level == 3:
-                    current_subtitle = text
-                    result.append(f"### {current_subtitle}\n")
+                    result.append(f"### {text}\n")
 
                 elif level == 5:
                     if text == first_section_name or text == second_section_name or text == third_section_name:
@@ -60,13 +57,24 @@ def extract_specific_section(
                         inside_section = False
 
                 elif level == 6 and inside_section:
-                    current_paragraph_title = text
-                    result.append(f"###### {current_paragraph_title}\n")
+                    result.append(f"###### {text}\n")
 
         # Detect paragraphs inside_range and inside_section
         if inside_range and inside_section and token.type == "paragraph_open":
-            para_text = tokens[i + 1].content.strip()
-            result.append(para_text + "\n")
+            # Check if this paragraph is part of a list item
+            # Skip paragraphs that are list items
+            if tokens[i - 1].type != "list_item_open":
+                para_text = tokens[i + 1].content.strip()
+                result.append(para_text + "\n")
+
+        # Detect list items inside_range and inside_section
+        if inside_range and inside_section and token.type == "list_item_open":
+            j = i + 1
+            while j < len(tokens) and tokens[j].type != "list_item_close":
+                if tokens[j].type == "inline":
+                    item_text = tokens[j].content.strip()
+                    result.append(f"- {item_text}\n")
+                j += 1
 
         i += 1
 
