@@ -66,8 +66,7 @@ def extract_specific_section(
         # Detect paragraphs inside_range and inside_section
         if inside_range and inside_section and token.type == "paragraph_open":
             para_text = tokens[i + 1].content.strip()
-            if current_paragraph_title:
-                result.append(para_text + "\n")
+            result.append(para_text + "\n")
 
         i += 1
 
