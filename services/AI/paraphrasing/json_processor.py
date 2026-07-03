@@ -8,7 +8,7 @@ from langdetect import detect, LangDetectException
 TARGET_FIELDS = {"description", "objective"}
 
 logging.basicConfig(
-    filename="paraphrase.log",
+    filename="../../../exports/paraphrase.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
