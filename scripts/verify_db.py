@@ -1,5 +1,11 @@
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import configure_mappers
+
 from models.base import Base
 
 engine = create_engine("sqlite:///test.db", echo=False)

@@ -1,0 +1,101 @@
+.table-container {
+  padding: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.table-container h2 {
+  color: #000028;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+thead {
+  background-color: #000028;
+}
+
+th {
+  text-align: left;
+  padding: 14px 16px;
+  color: #a7ffeb;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #32fae6;
+}
+
+td {
+  padding: 14px 16px;
+  color: #0f324e;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #e0e6ea;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #f0fdfb;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-import,
+.btn-delete {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.btn-import {
+  background-color: #000028;
+  color: #ffffff;
+}
+
+.btn-import:hover {
+  background-color: #001a4d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 40, 0.3);
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+}
+
+.error {
+  color: #d32f2f;
+  padding: 16px;
+  background-color: #fdecea;
+  border-radius: 8px;
+  margin-top: 16px;
+}

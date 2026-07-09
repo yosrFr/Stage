@@ -10,3 +10,6 @@ from .control_tags import ControlTags
 from .family_norm import FamilyNorm
 from .language import Language
 from .norm import Norm
+from .customer import Customer
+from .audit import Audit
+from .user import User

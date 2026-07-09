@@ -1,0 +1,27 @@
+<div class="table-container">
+  <h2>Liste des audits</h2>
+
+  <div *ngIf="loading">Chargement...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="!loading && !error">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Norm</th>
+        <th>Customer Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let opp of opportunities">
+        <td>{{ opp.audits.title }}</td>
+        <td>{{ opp.audits.norme }}</td>
+        <td>{{ opp.customer_information.company_name }}</td>
+        <td class="actions-cell">
+          <button class="btn-import" (click)="onImport(opp.opportunity_id)">Import</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
