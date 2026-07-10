@@ -1,0 +1,557 @@
+[
+  {
+    "norm_id": 5,
+    "category_id": 1,
+    "id": "ISMS.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 2,
+    "id": "ORP.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 3,
+    "id": "ORP.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 4,
+    "id": "ORP.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 5,
+    "id": "ORP.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 6,
+    "id": "ORP.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 7,
+    "id": "CON.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 8,
+    "id": "CON.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 9,
+    "id": "CON.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 10,
+    "id": "CON.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 11,
+    "id": "CON.7"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 12,
+    "id": "CON.8"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 13,
+    "id": "CON.9"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 14,
+    "id": "CON.10"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 15,
+    "id": "CON.11.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 16,
+    "id": "OPS.1.1.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 17,
+    "id": "OPS.1.1.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 18,
+    "id": "OPS.1.1.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 19,
+    "id": "OPS.1.1.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 20,
+    "id": "OPS.1.1.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 21,
+    "id": "OPS.1.1.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 22,
+    "id": "OPS.1.1.7"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 23,
+    "id": "OPS.1.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 24,
+    "id": "OPS.1.2.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 25,
+    "id": "OPS.1.2.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 26,
+    "id": "OPS.1.2.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 27,
+    "id": "OPS.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 28,
+    "id": "OPS.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 29,
+    "id": "OPS.3.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 30,
+    "id": "DER.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 31,
+    "id": "DER.2.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 32,
+    "id": "DER.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 33,
+    "id": "DER.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 34,
+    "id": "DER.3.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 35,
+    "id": "DER.3.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 36,
+    "id": "DER.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 37,
+    "id": "APP.1.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 38,
+    "id": "APP.1.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 39,
+    "id": "APP.1.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 40,
+    "id": "APP.2.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 41,
+    "id": "APP.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 42,
+    "id": "APP.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 43,
+    "id": "APP.3.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 44,
+    "id": "APP.3.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 45,
+    "id": "APP.3.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 46,
+    "id": "APP.3.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 47,
+    "id": "APP.3.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 48,
+    "id": "APP.4.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 49,
+    "id": "APP.4.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 50,
+    "id": "APP.4.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 51,
+    "id": "APP.4.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 52,
+    "id": "APP.5.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 53,
+    "id": "APP.5.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 54,
+    "id": "APP.5.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 55,
+    "id": "APP.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 56,
+    "id": "APP.7"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 57,
+    "id": "SYS.1.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 58,
+    "id": "SYS.1.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 59,
+    "id": "SYS.1.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 60,
+    "id": "SYS.1.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 61,
+    "id": "SYS.1.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 62,
+    "id": "SYS.1.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 63,
+    "id": "SYS.1.7"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 64,
+    "id": "SYS.1.8"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 65,
+    "id": "SYS.1.9"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 66,
+    "id": "SYS.2.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 67,
+    "id": "SYS.2.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 68,
+    "id": "SYS.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 69,
+    "id": "SYS.2.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 70,
+    "id": "SYS.2.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 71,
+    "id": "SYS.2.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 72,
+    "id": "SYS.3.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 73,
+    "id": "SYS.3.2.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 74,
+    "id": "SYS.3.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 75,
+    "id": "SYS.3.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 76,
+    "id": "SYS.3.2.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 77,
+    "id": "SYS.3.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 78,
+    "id": "SYS.4.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 79,
+    "id": "SYS.4.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 80,
+    "id": "SYS.4.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 81,
+    "id": "SYS.4.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 82,
+    "id": "IND.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 83,
+    "id": "IND.2.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 84,
+    "id": "IND.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 85,
+    "id": "IND.2.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 86,
+    "id": "IND.2.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 87,
+    "id": "IND.2.7"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 88,
+    "id": "IND.3.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 89,
+    "id": "NET.1.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 90,
+    "id": "NET.1.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 91,
+    "id": "NET.2.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 92,
+    "id": "NET.2.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 93,
+    "id": "NET.3.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 94,
+    "id": "NET.3.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 95,
+    "id": "NET.3.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 96,
+    "id": "NET.3.4"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 97,
+    "id": "NET.4.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 98,
+    "id": "NET.4.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 99,
+    "id": "NET.4.3"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 100,
+    "id": "INF.1"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 101,
+    "id": "INF.2"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 102,
+    "id": "INF.5"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 103,
+    "id": "INF.6"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 104,
+    "id": "INF.7"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 105,
+    "id": "INF.8"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 106,
+    "id": "INF.9"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 107,
+    "id": "INF.10"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 108,
+    "id": "INF.11"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 109,
+    "id": "INF.12"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 110,
+    "id": "INF.13"
+  },
+  {
+    "norm_id": 5,
+    "category_id": 111,
+    "id": "INF.14"
+  }
+]
