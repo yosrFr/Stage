@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 base_url = "https://e-n-s.odoo.com/"
-api_key = "api_key"
+api_key = " 240f8f421eaa1d0131ad8d64fe8bc198edf2c82c"
 db_name = "e-n-s"
 
 headers = {
@@ -21,7 +21,7 @@ PG_CONFIG = {
     "port": "5432",
     "dbname": "auditaas",
     "user": "postgres",
-    "password": "",
+    "password": "admin",
     
 }
 
