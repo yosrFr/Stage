@@ -101,7 +101,7 @@ def markdown_to_json(file_path):
                 if not any(obj["id"] == category["id"] for obj in categories):
                     categories.append(category)
 
-                name = current_category.split(" ")[1][:-2]
+                name = " ".join(current_category.split(" ")[1:])[:-2]
 
                 category_language = {
                     "language_id": 2,
