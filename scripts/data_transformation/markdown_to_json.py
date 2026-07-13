@@ -90,30 +90,30 @@ def markdown_to_json(file_path):
 
                 sub = current_category.split(" ")[0]
                 cat_str_id = sub[2:]
+                current_category_id = category_id
 
                 category = {
                     "norm_id": 5,
-                    "category_id": category_id,
+                    "category_id": current_category_id,
                     "id": cat_str_id
                 }
 
                 # Avoid duplicate entries if the same category id already exists
                 if not any(obj["id"] == category["id"] for obj in categories):
                     categories.append(category)
+                    category_id += 1
 
                 name = " ".join(current_category.split(" ")[1:])[:-2]
 
                 category_language = {
                     "language_id": 2,
                     "category_name": name,
-                    "category_id": category_id,
+                    "category_id": current_category_id,
                 }
 
                 # Avoid duplicate entries if the same category_language name already exists
                 if not any(obj["category_name"] == category_language["category_name"] for obj in category_languages):
                     category_languages.append(category_language)
-
-                category_id += 1
 
                 bol_chapter = False
                 bol_control = False
@@ -124,30 +124,30 @@ def markdown_to_json(file_path):
 
                 start_pos = current_chapter.find(".")
                 chap_str_id = current_chapter.split(" ")[0][start_pos + 1:-1]
+                current_chapter_id = chapter_id
 
                 chapter = {
                     "norm_id": 5,
                     "chapter_id": chapter_id,
-                    "id": chap_str_id,
+                    "id": cat_str_id + '.' + chap_str_id,
                 }
 
                 # Avoid duplicate entries if the same chapter id already exists
                 if not any(obj["id"] == chapter["id"] for obj in chapters):
                     chapters.append(chapter)
+                    chapter_id += 1
 
                 title = current_chapter.split(" ")[1][:-2]
 
                 chapter_language = {
                     "language_id": 2,
                     "title": title,
-                    "chapter_id": chapter_id,
+                    "chapter_id": current_chapter_id,
                 }
 
                 # Avoid duplicate entries if the same chapter_language title already exists
-                if not any(obj["title"] == chapter_language["title"] for obj in chapter_languages):
+                if not any(obj["chapter_id"] == chapter_language["chapter_id"] for obj in chapter_languages):
                     chapter_languages.append(chapter_language)
-
-                chapter_id += 1
 
                 # We're inside a chapter
                 bol_chapter = True
@@ -162,8 +162,8 @@ def markdown_to_json(file_path):
                     "norm_id": 5,
                     "control_id": control_id,
                     "id": current_control.split(" ")[0][2:],
-                    "category_id": category_id - 1,
-                    "chapter_id": chapter_id - 1,
+                    "category_id": current_category_id,
+                    "chapter_id": current_chapter_id,
                     "control_tag_id": 1 if control_tag == "B" else 2 if control_tag == "S" else 3
                 }
 
@@ -180,8 +180,7 @@ def markdown_to_json(file_path):
                 # Avoid duplicate entries if the same control_language title already exists
                 if not any(obj["title"] == control_language["title"] for obj in control_languages):
                     control_languages.append(control_language)
-
-                control_id += 1
+                    control_id += 1
 
                 # We're inside control
                 bol_control = True
@@ -222,7 +221,7 @@ def markdown_to_json(file_path):
                     if depth == 0:
                         break
 
-                elif tokens[j].type == "inline": # The content of each list item
+                elif tokens[j].type == "inline":  # The content of each list item
                     items.append(tokens[j].content.strip())
 
                 j += 1
