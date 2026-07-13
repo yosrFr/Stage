@@ -1,0 +1,45 @@
+<div class="table-container">
+  <div class="header-row">
+    <h2>{{ viewMode === 'not-imported' ? 'Opportunities List' : 'Imported Opportunities' }}</h2>
+
+    <div class="switch-group">
+      <button
+        class="switch-btn"
+        [class.active]="viewMode === 'not-imported'"
+        (click)="switchView('not-imported')">
+        Not Imported
+      </button>
+      <button
+        class="switch-btn"
+        [class.active]="viewMode === 'imported'"
+        (click)="switchView('imported')">
+        Imported
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-text">Chargement...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="!loading && !error">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Norm</th>
+        <th>Customer Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let opp of opportunities">
+        <td>{{ opp.audits.title }}</td>
+        <td>{{ opp.audits.norme }}</td>
+        <td>{{ opp.customer_information.company_name }}</td>
+        <td class="actions-cell">
+          <button *ngIf="viewMode === 'not-imported'" class="btn-import" (click)="onImport(opp.opportunity_id)">Import</button>
+          <button *ngIf="viewMode === 'imported'" class="btn-edit" disabled>Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -13,3 +13,4 @@ class Language(Base):
     chapter_languages = relationship("ChapterLanguage", back_populates="languages")
     category_languages = relationship("CategoryLanguage", back_populates="languages")
     control_languages = relationship("ControlLanguage", back_populates="languages")
+    customers = relationship("Customer", back_populates="language")

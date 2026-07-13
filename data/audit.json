@@ -1,0 +1,28 @@
+[
+    {
+        "audit_id": 1,
+        "responsible": "Nouha",
+        "customer_id": 1,
+        "norm_id": 1,
+        "main_contact_id": null,
+        "lead_auditor_id": 2,
+        "title": "2026.02_STASCTUN_InternalAudit",
+        "version": "V1.0",
+        "status": null,
+        "classification": null,
+        "firma_adress": null,
+        "date_of_order": "2026-02-19",
+        "start_date": null,
+        "end_date": null,
+        "advisor": null,
+        "observer": null,
+        "goals": null,
+        "scope": null,
+        "type": "Internal Audit",
+        "dates_and_location": null,
+        "preassessment": null,
+        "comment": null,
+        "management_summary": "Dummy Summary",
+        "impression_text_area": "Dummy Impression"
+    }
+]

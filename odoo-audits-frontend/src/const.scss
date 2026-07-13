@@ -1,0 +1,71 @@
+// Main color palette
+// primary colors
+$primary-bg: #000028;
+$accent-color: #32fae6;
+// secondary colors
+$secondary-color:#177D86;
+$secondary-color2:#125367;
+$secondary-color3:#0f324e;
+// complementary colors
+$comp-color1:#e0e5e9;
+$comp-color2:#8a2b65;
+$comp-color3:#b7094c;
+$comp-color4:#f3d849;
+$comp-color5:#edb518;
+
+
+$success:#28a745;
+
+$color4:#fff3cd;
+// $secondary: #3aafb9;
+$text-color: #fff;
+$disabled-color: #ffffff70;
+$divider-color: #FFFFFF4D;
+$snackbar-bg: #333333;
+$loader-color:rgba(12, 99, 159, 1.0);
+$danger:rgb(244, 15, 15);
+$danger-hovred:rgba(244, 15, 15, 0.81);
+$item-hover:rgba(111, 109, 109, 0.234);
+$even-row: #ffffff4b;
+$odd-row: #8988880d;
+$hovered-row:#00c9b819;
+$gradient1:transparent linear-gradient(70deg, #32FAE6 -90%, #115569 -25%, #000028 60%) 0% 0% no-repeat padding-box;
+$gradient2:transparent linear-gradient(90deg, $accent-color -73%, $primary-bg 130%) 0% 0% no-repeat padding-box;
+$switch:#32fae63b;
+$hovred-gray:rgba(128, 128, 128, 0.093);
+$color1:#c7dbe421;
+$bs-secondary-bg: #e9ecef;
+
+// Opacity variants
+$accent-color-20: rgba($accent-color, 0.2);
+$accent-color-80: rgba($accent-color, 0.8);
+$accent-color-50: rgba($accent-color, 0.5);
+$accent-color-100: rgba($accent-color, 1);
+$primary-bg-50: rgba($primary-bg, 0.5);
+$secondary-02: rgba($secondary-color, 0.2);
+$secondary-01: rgba($secondary-color, 0.1);
+
+
+
+// Border radius values
+$border-radius-standard: 10px;
+$border-radius-small: 5px;
+$border-radius-large: 20px;
+$border-md: 50px;
+
+// Border definitions
+$border-accent: 1px solid $accent-color;
+$border-modal:1px solid $secondary-color;
+$border-import:2px dashed #ccc;
+$border-select:2px solid $secondary-color;
+$border-1:1px solid #80cbc4;
+$border-2:1px solid #ccc;
+$border-yellow:1px solid $comp-color5;
+//Size
+$size-xs: 13px;
+$size-sm: 16px;
+$standard-size: 20px;
+$size-lg: 35px;
+
+// box-shadow
+$box-shadow:0 2px 10px rgba(0, 0, 0, 0.2);

@@ -17,3 +17,4 @@ class Norm(Base):
     chapters = relationship("Chapter", back_populates="norm")
     controls = relationship("Control", back_populates="norms")
     family_norm = relationship("FamilyNorm", back_populates="norm")
+    audits = relationship("Audit", back_populates="norm")

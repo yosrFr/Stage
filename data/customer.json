@@ -1,0 +1,17 @@
+[
+    {
+    "customer_id": 1,
+    "name": "S TASC TUN",
+    "street": "Rte Taniour",
+    "zip": "77777",
+    "location": "Rte Taniour km 4",
+    "country": "Tunisia",
+    "email": "samar.kotti@s-tasc.com",
+    "phone_number": "+4944950700",
+    "language_id": 1,
+    "account_manager": "Nouha Schoenbrunn",
+    "manager_email": "nouha.schoenbrunn@schoenbrunn-tasc.de",
+    "main_contact": "Samar Kotti",
+    "manager_notes": ""
+}
+]
