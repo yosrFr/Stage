@@ -12,6 +12,7 @@ class QuestionResponse(Base):
 
     response_id = Column(Integer, primary_key=True, index=True)
     control_id = Column(Integer, ForeignKey("control.control_id"), nullable=False)
+    audit_id = Column(Integer, ForeignKey("audit.audit_id", ondelete="CASCADE"), nullable=False)
 
     risk_level = Column(Integer)
     current_state = Column(String(5000))
