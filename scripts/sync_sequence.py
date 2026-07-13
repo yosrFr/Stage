@@ -9,7 +9,11 @@ TABLES = {
     "control_tags": "control_tag_id",
     "family_norm": "family_norm_id",
     "language": "language_id",
-    "norms": "norm_id"
+    "norms": "norm_id",
+    "question_responses": "response_id",
+    "measure": "measure_id",
+    "response_findings": "response_id",
+    "findings": "finding_id",
 }
 
 db = SessionLocal()

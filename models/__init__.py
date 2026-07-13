@@ -13,3 +13,7 @@ from .norm import Norm
 from .customer import Customer
 from .audit import Audit
 from .user import User
+from .finding import Finding
+from .measure import Measure
+from .questionResponse import QuestionResponse
+from .responseFinding import ResponseFinding

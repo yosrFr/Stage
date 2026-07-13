@@ -5,13 +5,13 @@ from fastapi.params import Depends
 from sqlalchemy.orm import Session
 
 from database.session import get_db
-from services.import_service import import_norm
+from services.database.import_service import import_norm
 
-router = APIRouter(prefix="/import", tags=["import"])
+router = APIRouter(prefix="/import_data", tags=["import"])
 
 
 @router.post(
-    "/import_data",
+    "/",
     summary="Import data from a JSON file into the database",
     description="Import the new paraphrased data from an external file into the database"
 )

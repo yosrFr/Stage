@@ -15,7 +15,7 @@ reptor = Reptor(
 )
 
 # load report data from json file
-with open("report_data.json", "r", encoding="utf-8") as f:
+with open("../../test_input_files/report_data.json", "r", encoding="utf-8") as f:
     fields = json.load(f)
 
 # update the report section of the project
@@ -28,5 +28,5 @@ reptor.api.projects.update_section(
 pdf = reptor.api.projects.render()
 
 # save the generated PDF
-with open("report.pdf", "wb") as f:
+with open("../../exports/report.pdf", "wb") as f:
     f.write(pdf)
