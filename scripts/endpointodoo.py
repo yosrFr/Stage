@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 base_url = "https://e-n-s.odoo.com/"
-api_key = " 240f8f421eaa1d0131ad8d64fe8bc198edf2c82c"
+api_key = "240f8f421eaa1d0131ad8d64fe8bc198edf2c82c"
 db_name = "e-n-s"
 
 headers = {
@@ -429,6 +429,41 @@ def sync_cleanup():
         })
     except Exception as e:
         conn.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cur.close()
+        conn.close()
+@app.route("/imported-opportunities", methods=["GET"])
+def get_imported_opportunities():
+    conn = get_pg_connection()
+    cur = conn.cursor()
+    try:
+        cur.execute("""
+            SELECT a.opportunity_id, a.title, n.title AS norm_title, c.name AS customer_name
+            FROM audit a
+            LEFT JOIN norms n ON a.norm_id = n.norm_id
+            LEFT JOIN customers c ON a.customer_id = c.customer_id
+            WHERE a.opportunity_id IS NOT NULL
+            ORDER BY a.audit_id DESC
+        """)
+        rows = cur.fetchall()
+
+        result = []
+        for row in rows:
+            opportunity_id, title, norm_title, customer_name = row
+            result.append({
+                "opportunity_id": opportunity_id,
+                "audits": {
+                    "title": title,
+                    "norme": norm_title,
+                },
+                "customer_information": {
+                    "company_name": customer_name,
+                }
+            })
+
+        return jsonify(result)
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
         cur.close()

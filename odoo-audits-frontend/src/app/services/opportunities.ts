@@ -58,4 +58,7 @@ syncCleanup(): Observable<any> {
 deleteAudit(opportunityId: number): Observable<any> {
   return this.http.delete(`http://127.0.0.1:5000/audit/${opportunityId}`);
 }
+getImportedOpportunities(): Observable<Opportunity[]> {
+  return this.http.get<Opportunity[]>('http://127.0.0.1:5000/imported-opportunities');
+}
 }

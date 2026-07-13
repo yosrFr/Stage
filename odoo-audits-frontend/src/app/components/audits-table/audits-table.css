@@ -11,7 +11,10 @@
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-
+.loading-text {
+  color: #1a1a2e ;
+  font-size: 16px;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -98,4 +101,56 @@ tbody tr:hover {
   background-color: #fdecea;
   border-radius: 8px;
   margin-top: 16px;
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header-row h2 {
+  margin-bottom: 0;
+}
+
+.switch-group {
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.switch-btn {
+  border: none;
+  background-color: transparent;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5a6b7a;
+  transition: all 0.2s ease;
+}
+
+.switch-btn:hover {
+  color: #000028;
+}
+
+.switch-btn.active {
+  background-color: #000028;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 40, 0.25);
+}
+.btn-edit {
+  background-color: transparent;
+  color: #9aa5b1;
+  border: 1px solid #d0d7de;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
