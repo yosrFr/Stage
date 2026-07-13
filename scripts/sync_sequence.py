@@ -13,7 +13,7 @@ TABLES = {
     "question_responses": "response_id",
     "measure": "measure_id",
     "response_findings": "response_id",
-    "findings": "finding_id",
+    "findings": "finding_id"
 }
 
 db = SessionLocal()

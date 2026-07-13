@@ -38,6 +38,10 @@ tables_to_truncate = [
     "customers",
     "norms",
     "language",
+    "findings",
+    "measure",
+    "question_responses",
+    "response_findings",
 ]
 
 db.execute(text(f"TRUNCATE TABLE {', '.join(tables_to_truncate)} RESTART IDENTITY CASCADE;"))
@@ -58,25 +62,25 @@ with open("../data/TISAX/norms.json", "r", encoding="utf-8") as f:
 
 create_many_norms(db, norms)
 # Populate the table language
-with open("data/languages.json", "r", encoding="utf-8") as f:
+with open("../data/TISAX/languages.json", "r", encoding="utf-8") as f:
     languages = json.load(f)
 
 create_many_languages(db, languages)
 
 # Populate the table customer
-with open("data/customer.json", "r", encoding="utf-8") as f:
+with open("../data/customer.json", "r", encoding="utf-8") as f:
     customers = json.load(f)
 
 create_many_customers(db, customers)
 
 # Populate the table user
-with open("data/user.json", "r", encoding="utf-8") as f:
+with open("../data/user.json", "r", encoding="utf-8") as f:
     users = json.load(f)
 
 create_many_users(db, users)
 
 # Populate the table audit
-with open("data/audit.json", "r", encoding="utf-8") as f:
+with open("../data/audit.json", "r", encoding="utf-8") as f:
     audits = json.load(f)
 
 create_many_audits(db, audits)
@@ -105,12 +109,6 @@ with open("../data/TISAX/controls.json", "r", encoding="utf-8") as f:
     controls = json.load(f)
 
 create_many_controls(db, controls)
-
-# Populate the table language
-with open("../data/TISAX/languages.json", "r", encoding="utf-8") as f:
-    languages = json.load(f)
-
-create_many_languages(db, languages)
 
 # Populate the table control_tag_language
 with open("../data/TISAX/control_tag_language.json", "r", encoding="utf-8") as f:
