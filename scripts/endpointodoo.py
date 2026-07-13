@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import requests
 import psycopg2
@@ -28,6 +28,19 @@ PG_CONFIG = {
 
 def get_pg_connection():
     return psycopg2.connect(**PG_CONFIG)
+def ensure_column(table_name, column_name, column_type):
+    conn = get_pg_connection()
+    cur = conn.cursor()
+    try:
+        cur.execute(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {column_type};")
+        conn.commit()
+        print(f"Colonne '{column_name}' ajoutée à '{table_name}'.")
+    except psycopg2.errors.DuplicateColumn:
+        conn.rollback()
+        print(f"Colonne '{column_name}' déjà existante dans '{table_name}', rien à faire.")
+    finally:
+        cur.close()
+        conn.close()
 
 
 def get_existing_opportunity_ids():
@@ -353,7 +366,6 @@ def fix_sequence(cur, table_name, id_column):
         )
     """)
 
-
 def fix_all_sequences():
     conn = get_pg_connection()
     cur = conn.cursor()
@@ -388,6 +400,8 @@ def ensure_opportunity_id_column():
 
 
 ensure_opportunity_id_column()
+ensure_column("audit", "protection_needs", "VARCHAR(50)")
+ensure_column("audit", "category_id", "INTEGER")
 fix_all_sequences()
 
 
@@ -439,27 +453,28 @@ def get_imported_opportunities():
     cur = conn.cursor()
     try:
         cur.execute("""
-            SELECT a.opportunity_id, a.title, n.title AS norm_title, c.name AS customer_name
-            FROM audit a
-            LEFT JOIN norms n ON a.norm_id = n.norm_id
-            LEFT JOIN customers c ON a.customer_id = c.customer_id
-            WHERE a.opportunity_id IS NOT NULL
-            ORDER BY a.audit_id DESC
+        SELECT a.opportunity_id, a.title, n.title AS norm_title, c.name AS customer_name, a.protection_needs
+        FROM audit a
+        LEFT JOIN norms n ON a.norm_id = n.norm_id
+        LEFT JOIN customers c ON a.customer_id = c.customer_id
+        WHERE a.opportunity_id IS NOT NULL
+        ORDER BY a.audit_id DESC
         """)
         rows = cur.fetchall()
 
         result = []
         for row in rows:
-            opportunity_id, title, norm_title, customer_name = row
+            opportunity_id, title, norm_title, customer_name, protection_needs = row
             result.append({
-                "opportunity_id": opportunity_id,
-                "audits": {
-                    "title": title,
-                    "norme": norm_title,
-                },
-                "customer_information": {
-                    "company_name": customer_name,
-                }
+            "opportunity_id": opportunity_id,
+            "audits": {
+                "title": title,
+                "norme": norm_title,
+                "protection_needs": protection_needs,
+            },
+            "customer_information": {
+                "company_name": customer_name,
+            }
             })
 
         return jsonify(result)
@@ -468,7 +483,30 @@ def get_imported_opportunities():
     finally:
         cur.close()
         conn.close()
+@app.route("/audit/<int:opportunity_id>/protection-needs", methods=["PATCH"])
+def update_protection_needs(opportunity_id):
+    data = request.get_json()
+    protection_needs = data.get("protection_needs")
 
+    valid_values = ["normal", "high", "very high"]
+    if protection_needs not in valid_values:
+        return jsonify({"error": f"Valeur invalide. Attendu : {valid_values}"}), 400
+
+    conn = get_pg_connection()
+    cur = conn.cursor()
+    try:
+        cur.execute("""
+            UPDATE audit SET protection_needs = %s
+            WHERE opportunity_id = %s
+        """, (protection_needs, opportunity_id))
+        conn.commit()
+        return jsonify({"status": "updated", "opportunity_id": opportunity_id, "protection_needs": protection_needs})
+    except Exception as e:
+        conn.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cur.close()
+        conn.close()
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

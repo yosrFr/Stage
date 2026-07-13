@@ -42,6 +42,8 @@ class Audit(Base):
     proto = Column(String(50), nullable=True)
     data = Column(String(50), nullable=True)
     validation = Column(VARCHAR(50), default='incoming')
+    protection_needs = Column(String(50), nullable=True)
+    category_id = Column(Integer, nullable=True)
     # -------------------------
     # Relationships
     # -------------------------

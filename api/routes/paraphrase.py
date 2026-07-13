@@ -5,7 +5,7 @@ import uuid
 
 from fastapi import APIRouter, HTTPException, UploadFile, File
 
-from services.AI.paraphrasing.file_handler import rewrite_json
+# from services.AI.paraphrasing.file_handler import rewrite_json
 
 router = APIRouter(prefix="/paraphrase", tags=["paraphrase"])
 

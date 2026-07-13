@@ -1,7 +1,7 @@
 import re
 
 from services.AI.ollama_client import generate_text
-from services.AI.paraphrasing.prompt_builder import build_rewrite_prompt
+# from services.AI.paraphrasing.prompt_builder import build_rewrite_prompt
 
 
 def rewrite_value(text: str, expected_lang: str) -> str:

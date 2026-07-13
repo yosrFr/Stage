@@ -13,6 +13,7 @@ export interface Opportunity {
     type: string;
     date_of_order: string;
     title: string;
+    protection_needs?: string;
   };
   customer_information: {
     id: number;
@@ -42,7 +43,7 @@ export interface Opportunity {
   providedIn: 'root'
 })
 export class Opportunities {
-  private apiUrl = 'http://127.0.0.1:5000/opportunities';
+  private apiUrl = 'http://127.0.0.1:8000/opportunities';
 
   constructor(private http: HttpClient) {}
 
@@ -50,15 +51,20 @@ export class Opportunities {
     return this.http.get<Opportunity[]>(this.apiUrl);
   }
   importOpportunity(opportunityId: number): Observable<any> {
-  return this.http.post(`http://127.0.0.1:5000/import/${opportunityId}`, {});
+  return this.http.post(`http://127.0.0.1:8000/import/${opportunityId}`, {});
 }
 syncCleanup(): Observable<any> {
-  return this.http.post('http://127.0.0.1:5000/sync-cleanup', {});
+  return this.http.post('http://127.0.0.1:8000/opportunities/sync-cleanup', {});
 }
 deleteAudit(opportunityId: number): Observable<any> {
-  return this.http.delete(`http://127.0.0.1:5000/audit/${opportunityId}`);
+  return this.http.delete(`http://127.0.0.1:8000/audit/${opportunityId}`);
 }
 getImportedOpportunities(): Observable<Opportunity[]> {
-  return this.http.get<Opportunity[]>('http://127.0.0.1:5000/imported-opportunities');
+  return this.http.get<Opportunity[]>('http://127.0.0.1:8000/imported-opportunities');
+}
+updateProtectionNeeds(opportunityId: number, protectionNeeds: string): Observable<any> {
+  return this.http.patch(`http://127.0.0.1:8000/audit/${opportunityId}/protection-needs`, {
+    protection_needs: protectionNeeds
+  });
 }
 }

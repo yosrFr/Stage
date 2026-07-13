@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Opportunities, Opportunity } from '../../services/opportunities';
 
 @Component({
   selector: 'app-audits-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './audits-table.html',
   styleUrls: ['./audits-table.css']
 })
@@ -94,4 +95,38 @@ export class AuditsTableComponent implements OnInit {
       }
     });
   }
+showEditModal = false;
+editingOpportunityId: number | null = null;
+selectedProtectionNeeds: string = '';
+
+onEditClick(opp: Opportunity): void {
+  this.editingOpportunityId = opp.opportunity_id;
+  this.selectedProtectionNeeds = opp.audits.protection_needs || '';
+  this.showEditModal = true;
+}
+
+closeEditModal(): void {
+  this.showEditModal = false;
+  this.editingOpportunityId = null;
+  this.selectedProtectionNeeds = '';
+}
+
+saveProtectionNeeds(): void {
+  if (!this.editingOpportunityId || !this.selectedProtectionNeeds) return;
+
+  this.opportunitiesService.updateProtectionNeeds(this.editingOpportunityId, this.selectedProtectionNeeds).subscribe({
+    next: () => {
+      const opp = this.opportunities.find(o => o.opportunity_id === this.editingOpportunityId);
+      if (opp) {
+        opp.audits.protection_needs = this.selectedProtectionNeeds;
+      }
+      this.closeEditModal();
+      this.cdr.detectChanges();
+    },
+    error: (err) => {
+      alert('Erreur mise à jour : ' + (err.error?.error || err.message));
+      console.error(err);
+    }
+  });
+}
 }

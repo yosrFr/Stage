@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div *ngIf="loading" class="loading-text">Chargement...</div>
+  <div *ngIf="loading" class="loading-text">loading...</div>
   <div *ngIf="error" class="error">{{ error }}</div>
 
   <table *ngIf="!loading && !error">
@@ -37,9 +37,34 @@
         <td>{{ opp.customer_information.company_name }}</td>
         <td class="actions-cell">
           <button *ngIf="viewMode === 'not-imported'" class="btn-import" (click)="onImport(opp.opportunity_id)">Import</button>
-          <button *ngIf="viewMode === 'imported'" class="btn-edit" disabled>Edit</button>
+          <button *ngIf="viewMode === 'imported'" class="btn-edit" (click)="onEditClick(opp)">Edit</button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+<div class="modal-overlay" *ngIf="showEditModal" (click)="closeEditModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Edit Audit</h3>
+
+    <div class="modal-field">
+      <label>Protection Needs</label>
+      <select [(ngModel)]="selectedProtectionNeeds">
+        <option value="" disabled>Select a level</option>
+        <option value="normal">Normal</option>
+        <option value="high">High</option>
+        <option value="very high">Very High</option>
+      </select>
+    </div>
+
+    <div class="modal-field">
+      <label>Category</label>
+      <button class="btn-category" disabled>Open Category</button>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeEditModal()">Cancel</button>
+      <button class="btn-save" (click)="saveProtectionNeeds()" [disabled]="!selectedProtectionNeeds">Save</button>
+    </div>
+  </div>
 </div>
