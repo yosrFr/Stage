@@ -20,6 +20,7 @@ class QuestionResponse(Base):
 
     # Relations Many-to-One
     control = relationship("Control", back_populates="question_responses")
+    audit = relationship("Audit", back_populates="question_responses")
     measures = relationship("Measure", back_populates="response")
 
     # Many-to-Many: QuestionResponse <-> Finding via ResponseFinding

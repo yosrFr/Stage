@@ -65,4 +65,4 @@ class Audit(Base):
     # user_audits = relationship("UserAudit", back_populates="audit")
 
     # One-to-Many: An audit can have many question responses
-    # question_responses = relationship("QuestionResponse", back_populates="audit")
+    question_responses = relationship("QuestionResponse", back_populates="audit")
