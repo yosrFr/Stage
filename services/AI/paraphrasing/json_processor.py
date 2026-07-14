@@ -1,14 +1,21 @@
 import logging
 import re
 
+from pathlib import Path
+
 from services.AI.paraphrasing.rewrite_engine import rewrite_value
 
 from langdetect import detect, LangDetectException
 
 TARGET_FIELDS = {"description", "objective"}
 
+BASE_DIR = Path(__file__).resolve().parent
+LOG_DIR = (BASE_DIR / "../../../exports").resolve()
+
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
 logging.basicConfig(
-    filename="../../../exports/paraphrase.log",
+    filename=LOG_DIR / "paraphrase.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
