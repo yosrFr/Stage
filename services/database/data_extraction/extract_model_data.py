@@ -35,16 +35,19 @@ def get_model_data(db):
 
         max_elem = max(len(findings), len(measures))
 
-        quest_resp = {}
+
         for i in range(max_elem):
+            quest_resp = {}
 
             if len(findings) > i:
                 quest_resp["finding"] = get_finding_text(db, findings[i].finding_id)
-            quest_resp["finding"] = get_finding_text(db, findings[i - 1].finding_id)
+            else:
+                quest_resp["finding"] = get_finding_text(db, findings[len(findings) - 1].finding_id)
 
             if len(measures) > i:
                 quest_resp["measures"] = measures[i].measure_text
-            quest_resp["measures"] = measures[i - 1].measure_text
+            else:
+                quest_resp["measures"] = measures[len(measures) - 1].measure_text
 
             questions_responses.append(quest_resp)
 
