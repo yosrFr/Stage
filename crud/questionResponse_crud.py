@@ -27,6 +27,10 @@ def get_question_responses(db, response_id):
     return db.query(QuestionResponse).filter(QuestionResponse.response_id == response_id).first()
 
 
+def get_all_question_responses(db):
+    return db.query(QuestionResponse).all()
+
+
 def update_question_responses(db, response_id, data):
     question_responses = get_question_responses(db, response_id)
 

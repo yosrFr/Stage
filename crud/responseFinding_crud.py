@@ -27,6 +27,10 @@ def get_response_findings(db, response_id):
     return db.query(ResponseFinding).filter(ResponseFinding.response_id == response_id).first()
 
 
+def get_findings_by_response(db, response_id):
+    return db.query(ResponseFinding).filter(ResponseFinding.response_id == response_id).all()
+
+
 def update_response_findings(db, response_id, data):
     response_findings = get_response_findings(db, response_id)
 

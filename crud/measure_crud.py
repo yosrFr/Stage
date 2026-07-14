@@ -27,6 +27,10 @@ def get_measure(db, measure_id):
     return db.query(Measure).filter(Measure.measure_id == measure_id).first()
 
 
+def get_measures_by_response(db, response_id):
+    return db.query(Measure).filter(Measure.response_id == response_id).all()
+
+
 def update_measure(db, measure_id, data):
     measure = get_measure(db, measure_id)
 

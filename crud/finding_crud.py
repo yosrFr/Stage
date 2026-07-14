@@ -27,6 +27,10 @@ def get_finding(db, finding_id):
     return db.query(Finding).filter(Finding.finding_id == finding_id).first()
 
 
+def get_finding_text(db, id_finding):
+    return db.query(Finding).filter(Finding.finding_id == id_finding).first().finding_text
+
+
 def update_finding(db, finding_id, data):
     finding = get_finding(db, finding_id)
 

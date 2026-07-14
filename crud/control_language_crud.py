@@ -25,7 +25,7 @@ def create_many_control_languages(db, data: list[dict]):
 
 def get_control_language(db, control_id, language_id):
     return (db.query(ControlLanguage)
-            .filter(ControlLanguage.control_id == control_id and
+            .filter(ControlLanguage.control_id == control_id,
                     ControlLanguage.language_id == language_id)
             .first())
 
