@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { isPlatformServer } from '@angular/common';
 import { Observable } from 'rxjs';
 
 export interface Opportunity {
@@ -43,28 +44,42 @@ export interface Opportunity {
   providedIn: 'root'
 })
 export class Opportunities {
-  private apiUrl = 'http://127.0.0.1:8000/opportunities';
+  private baseUrl: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    // Côté serveur (SSR, dans le conteneur) -> utiliser le nom du service Docker
+    // Côté navigateur (client) -> utiliser localhost, accessible via le port mappé
+    this.baseUrl = isPlatformServer(this.platformId)
+      ? 'http://backend:8000'
+      : 'http://127.0.0.1:8000';
+  }
 
   getOpportunities(): Observable<Opportunity[]> {
-    return this.http.get<Opportunity[]>(this.apiUrl);
+    return this.http.get<Opportunity[]>(`${this.baseUrl}/opportunities`);
   }
+
   importOpportunity(opportunityId: number): Observable<any> {
-  return this.http.post(`http://127.0.0.1:8000/import/${opportunityId}`, {});
-}
-syncCleanup(): Observable<any> {
-  return this.http.post('http://127.0.0.1:8000/opportunities/sync-cleanup', {});
-}
-deleteAudit(opportunityId: number): Observable<any> {
-  return this.http.delete(`http://127.0.0.1:8000/audit/${opportunityId}`);
-}
-getImportedOpportunities(): Observable<Opportunity[]> {
-  return this.http.get<Opportunity[]>('http://127.0.0.1:8000/opportunities/imported-opportunities');
-}
-updateProtectionNeeds(opportunityId: number, protectionNeeds: string): Observable<any> {
-  return this.http.patch(`http://127.0.0.1:8000/audit/${opportunityId}/protection-needs`, {
-    protection_needs: protectionNeeds
-  });
-}
+    return this.http.post(`${this.baseUrl}/opportunities/import/${opportunityId}`, {});
+  }
+
+  syncCleanup(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/opportunities/sync-cleanup`, {});
+  }
+
+  deleteAudit(opportunityId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/audit/${opportunityId}`);
+  }
+
+  getImportedOpportunities(): Observable<Opportunity[]> {
+    return this.http.get<Opportunity[]>(`${this.baseUrl}/opportunities/imported-opportunities`);
+  }
+
+  updateProtectionNeeds(opportunityId: number, protectionNeeds: string): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/opportunities/audit/${opportunityId}/protection-needs`, {
+      protection_needs: protectionNeeds
+    });
+  }
 }

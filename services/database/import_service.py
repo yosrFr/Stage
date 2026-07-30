@@ -15,40 +15,43 @@ def get_or_create_language(db, language_name):
 
     return language
 
+def get_or_create_family_norm(cur, name):
+    cur.execute("SELECT family_norm_id FROM family_norm WHERE name = %s", (name,))
+    row = cur.fetchone()
 
-def get_or_create_family_norm(db, name):
-    family = (db.query(FamilyNorm).filter(FamilyNorm.name == name).first())
+    if row:
+        return row[0]
 
-    if family:
-        return family
-
-    family = FamilyNorm(name=name)
-
-    db.add(family)
-    db.flush()
-
-    return family
-
-
-def get_or_create_norm(db, data, family_norm_id):
-    norm = (db.query(Norm).filter(Norm.title == data["title"]).first())
-
-    if norm:
-        return norm
-
-    norm = Norm(
-        norm_id=data["norm_id"],
-        title=data["title"],
-        description=data["description"],
-        abbreviation=data["abbreviation"],
-        publish_year=data["publish_year"],
-        family_norm_id=family_norm_id
+    cur.execute(
+        "INSERT INTO family_norm (name) VALUES (%s) RETURNING family_norm_id",
+        (name,)
     )
+    return cur.fetchone()[0]
 
-    db.add(norm)
-    db.flush()
 
-    return norm
+def get_or_create_norm(cur, title):
+    if not title:
+        return None
+
+    cur.execute("SELECT norm_id FROM norms WHERE title = %s", (title,))
+    row = cur.fetchone()
+
+    if row:
+        return row[0]
+
+    family_norm_id = get_or_create_family_norm(cur, "Non classé")
+
+    cur.execute(
+        """
+        INSERT INTO norms (title, abbreviation, description, publish_year, family_norm_id)
+        VALUES (%s, %s, %s, %s, %s)
+        RETURNING norm_id
+        """,
+        (title, title[:100], None, 2026, family_norm_id)
+    )
+    new_id = cur.fetchone()[0]
+
+    return new_id
 
 
 def get_or_create_control_tag(db, control_tag_id):
@@ -269,7 +272,7 @@ def import_norm(db, data):
     """
     try:
         family_norm = get_or_create_family_norm(db, data["family_norm"]["name"])
-        norm = get_or_create_norm(db, data, family_norm.family_norm_id)
+        norm = get_or_create_norm(db, data)
         category_map = import_categories(db, norm.norm_id, data.get("categories", []))
         chapter_map = import_chapters(db, norm.norm_id, data.get("chapters", []))
         import_controls(db, norm.norm_id, data.get("controls", []), chapter_map, category_map)

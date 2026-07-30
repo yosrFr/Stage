@@ -62,7 +62,11 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          
           "builder": "@angular/build:dev-server",
+          "options": {
+             "allowedHosts": true
+              },
           "configurations": {
             "production": {
               "buildTarget": "odoo-audits-frontend:build:production"

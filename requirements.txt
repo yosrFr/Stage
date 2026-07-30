@@ -7,3 +7,4 @@ reptor
 python-dotenv
 langdetect
 pymupdf4llm
+python-multipart

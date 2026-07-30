@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from scripts.endpointodoo import fetch_active_opportunities, get_existing_opportunity_ids, get_or_create_customer, get_pg_connection
+from services.opportunities import fetch_active_opportunities, get_existing_opportunity_ids, get_or_create_customer, get_pg_connection
 from services.database.import_service import get_or_create_norm
 from services.opportunities import get_imported_opportunities_from_db, insert_or_update_audit, sync_cleanup_db, update_protection_needs_in_db
 

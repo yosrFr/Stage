@@ -1,0 +1,9 @@
+.idea
+.git
+.gitignore
+__pycache__
+*.pyc
+test.db
+odoo-audits-fro*
+.venv
+venv
