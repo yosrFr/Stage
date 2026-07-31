@@ -1,0 +1,62 @@
+.categories-container {
+  background-color: #e5e9ec;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.categories-header h2 {
+  color: #000028;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.loading-text,
+.error-text {
+  color: #000028;
+  font-size: 16px;
+}
+
+.categories-list {
+  background-color: #000028;
+  border-radius: 8px;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.categories-list li {
+  color: #7fffd4;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+}
+
+.categories-list li:last-child {
+  border-bottom: none;
+}
+.search-bar {
+  margin-bottom: 16px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.categories-list li label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.categories-list li input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #7fffd4;
+}

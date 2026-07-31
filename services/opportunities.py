@@ -2,16 +2,16 @@ import psycopg2
 import requests
 
 PG_CONFIG = {
-    "host": "localhost",
+    "host": "db",
     "port": "5432",
-    "dbname": "auditaas",
+    "dbname": "mydb",
     "user": "postgres",
-    "password": "admin",
+    "password": "postgres",
 }
 
-base_url = "https://e-n-s.odoo.com/"
-api_key = "240f8f421eaa1d0131ad8d64fe8bc198edf2c82c"
-db_name = "e-n-s"
+base_url = "https://audit12.odoo.com/"
+api_key = "87b8b77186062dfee49203d13fb07b545a303d9c"
+db_name = "audit12"
 
 headers = {
     "Authorization": f"Bearer {api_key}",
@@ -291,7 +291,7 @@ def fetch_active_opportunities():
         "fields": [
             "id", "name", "partner_id", "contact_name", "email_from", "phone",
             "street", "zip", "city", "country_id", "lang_id",
-            "x_studio_product", "x_studio_date", "stage_id"
+            "x_studio_product", "x_studio_date_of_order", "stage_id"
         ]
     }
 
@@ -318,12 +318,11 @@ def fetch_active_opportunities():
         product_id = product_field[0] if product_field else None
 
         audit_type = "internal audit"
-        date_order = opp.get("x_studio_date")
+        date_order = opp.get("x_studio_date_of_order")
         language = lang_field[1] if lang_field else None
 
         product_tag_name = None
         product_tag_id = None
-
         if product_id:
             tag_endpoint = f"{base_url}/json/2/product.template/search_read"
             tag_payload = {
@@ -338,7 +337,6 @@ def fetch_active_opportunities():
                     if tag_field:
                         product_tag_id = tag_field[0]
                         product_tag_name = tag_field[1]
-
         if not product_tag_name or product_tag_name.lower() != "audit":
             continue
 

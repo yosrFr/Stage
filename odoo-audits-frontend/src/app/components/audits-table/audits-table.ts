@@ -1,12 +1,13 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { Opportunities, Opportunity } from '../../services/opportunities';
 
 @Component({
   selector: 'app-audits-table',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './audits-table.html',
   styleUrls: ['./audits-table.css']
 })
@@ -99,9 +100,12 @@ showEditModal = false;
 editingOpportunityId: number | null = null;
 selectedProtectionNeeds: string = '';
 
+selectedNorm: string = '';
+
 onEditClick(opp: Opportunity): void {
   this.editingOpportunityId = opp.opportunity_id;
   this.selectedProtectionNeeds = opp.audits.protection_needs || '';
+  this.selectedNorm = opp.audits.norme;
   this.showEditModal = true;
 }
 

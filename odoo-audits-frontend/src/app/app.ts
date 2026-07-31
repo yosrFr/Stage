@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AuditsTableComponent } from './components/audits-table/audits-table';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AuditsTableComponent],
-  template: `<app-audits-table></app-audits-table>`
+  imports: [RouterOutlet],
+  template: `<router-outlet></router-outlet>`
 })
 export class App {}

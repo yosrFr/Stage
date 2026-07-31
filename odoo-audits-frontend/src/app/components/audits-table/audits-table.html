@@ -37,7 +37,7 @@
         <td>{{ opp.customer_information.company_name }}</td>
         <td class="actions-cell">
           <button *ngIf="viewMode === 'not-imported'" class="btn-import" (click)="onImport(opp.opportunity_id)">Import</button>
-          <button *ngIf="viewMode === 'imported'" class="btn-edit" (click)="onEditClick(opp)">Edit</button>
+          <button *ngIf="viewMode === 'imported'&& opp.audits.norme === 'BSI'" class="btn-edit" (click)="onEditClick(opp)">Edit</button>
         </td>
       </tr>
     </tbody>
@@ -59,7 +59,7 @@
 
     <div class="modal-field">
       <label>Category</label>
-      <button class="btn-category" disabled>Open Category</button>
+      <a class="btn-category" [routerLink]="['/categories', selectedNorm]">Open Category</a>
     </div>
 
     <div class="modal-actions">
