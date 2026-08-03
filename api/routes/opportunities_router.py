@@ -61,9 +61,6 @@ def import_opportunity(opportunity_id: int):
         cur.close()
         conn.close()
 
-class ProtectionNeedsUpdate(BaseModel):
-    protection_needs: str
-
 
 @router.post("/sync-cleanup")
 def sync_cleanup():
@@ -90,6 +87,11 @@ def get_imported_opportunities():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+class ProtectionNeedsUpdate(BaseModel):
+    protection_needs: str
+    category_ids: list[int] = []
+
+
 @router.patch("/audit/{opportunity_id}/protection-needs")
 def update_protection_needs(opportunity_id: int, payload: ProtectionNeedsUpdate):
     valid_values = ["normal", "high", "very high"]
@@ -97,7 +99,12 @@ def update_protection_needs(opportunity_id: int, payload: ProtectionNeedsUpdate)
         raise HTTPException(status_code=400, detail=f"Valeur invalide. Attendu : {valid_values}")
 
     try:
-        update_protection_needs_in_db(opportunity_id, payload.protection_needs)
-        return {"status": "updated", "opportunity_id": opportunity_id, "protection_needs": payload.protection_needs}
+        update_protection_needs_in_db(opportunity_id, payload.protection_needs, payload.category_ids)
+        return {
+            "status": "updated",
+            "opportunity_id": opportunity_id,
+            "protection_needs": payload.protection_needs,
+            "category_ids": payload.category_ids
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -237,14 +237,24 @@ def get_imported_opportunities_from_db():
         conn.close()
 
 
-def update_protection_needs_in_db(opportunity_id, protection_needs):
+PROTECTION_NEEDS_MAP = {
+    "normal": 1,
+    "high": 2,
+    "very high": 3
+}
+
+def update_protection_needs_in_db(opportunity_id, protection_needs, category_ids=None):
     conn = get_pg_connection()
     cur = conn.cursor()
     try:
+        protection_needs_id = PROTECTION_NEEDS_MAP.get(protection_needs)
+
         cur.execute("""
-            UPDATE audit SET protection_needs = %s
+            UPDATE audit
+            SET protection_needs = %s,
+                category_id = %s
             WHERE opportunity_id = %s
-        """, (protection_needs, opportunity_id))
+        """, (str(protection_needs_id), category_ids or [], opportunity_id))
         conn.commit()
     finally:
         cur.close()

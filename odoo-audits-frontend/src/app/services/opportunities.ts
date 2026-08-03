@@ -77,9 +77,10 @@ export class Opportunities {
     return this.http.get<Opportunity[]>(`${this.baseUrl}/opportunities/imported-opportunities`);
   }
 
-  updateProtectionNeeds(opportunityId: number, protectionNeeds: string): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/opportunities/audit/${opportunityId}/protection-needs`, {
-      protection_needs: protectionNeeds
-    });
-  }
+  updateProtectionNeeds(opportunityId: number, protectionNeeds: string, categoryIds: number[]): Observable<any> {
+  return this.http.patch(`${this.baseUrl}/opportunities/audit/${opportunityId}/protection-needs`, {
+    protection_needs: protectionNeeds,
+    category_ids: categoryIds
+  });
+}
 }

@@ -4,5 +4,5 @@ import { CategoriesComponent } from './components/categories/categories';
 
 export const routes: Routes = [
   { path: '', component: AuditsTableComponent },
-  { path: 'categories/:norm', component: CategoriesComponent }
+  { path: 'categories/:norm/:opportunityId', component: CategoriesComponent }
 ];

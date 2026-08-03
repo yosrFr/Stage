@@ -1,12 +1,13 @@
 import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformServer } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 interface Category {
   category_id: number;
   category_name: string;
+  display_id?: string;
   checked?: boolean;
 }
 
@@ -24,10 +25,12 @@ export class CategoriesComponent implements OnInit {
   loading = true;
   error = '';
   norm = '';
+  opportunityId = '';
   private baseUrl: string;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -39,10 +42,17 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.norm = this.route.snapshot.paramMap.get('norm') || '';
+    this.opportunityId = this.route.snapshot.paramMap.get('opportunityId') || '';
 
     this.http.get<Category[]>(`${this.baseUrl}/categories/${this.norm}`).subscribe({
       next: (data) => {
-        this.categories = data.map(cat => ({ ...cat, checked: true }));
+        const savedRaw = sessionStorage.getItem(`unchecked_categories_${this.opportunityId}`);
+        const uncheckedIds: number[] = savedRaw ? JSON.parse(savedRaw) : [];
+
+        this.categories = data.map(cat => ({
+          ...cat,
+          checked: !uncheckedIds.includes(cat.category_id)
+        }));
         this.filteredCategories = this.categories;
         this.loading = false;
         this.cdr.detectChanges();
@@ -65,5 +75,18 @@ export class CategoriesComponent implements OnInit {
 
   toggleCheck(cat: Category): void {
     cat.checked = !cat.checked;
+  }
+
+  onSave(): void {
+    const uncheckedIds = this.categories
+      .filter(cat => !cat.checked)
+      .map(cat => cat.category_id);
+
+    sessionStorage.setItem(
+      `unchecked_categories_${this.opportunityId}`,
+      JSON.stringify(uncheckedIds)
+    );
+
+    this.router.navigate(['/'], { queryParams: { view: 'imported', reopen: this.opportunityId  } });
   }
 }

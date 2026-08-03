@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Opportunities, Opportunity } from '../../services/opportunities';
 
 @Component({
@@ -20,21 +21,28 @@ export class AuditsTableComponent implements OnInit {
 
   constructor(
     private opportunitiesService: Opportunities,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+  private route: ActivatedRoute  
   ) {}
 
-  ngOnInit(): void {
-    this.opportunitiesService.syncCleanup().subscribe({
-      next: () => {
-        this.loadCurrentView();
-      },
-      error: (err) => {
-        console.error('Erreur sync cleanup:', err);
-        this.loadCurrentView();
-      }
-    });
+ngOnInit(): void {
+  const requestedView = this.route.snapshot.queryParamMap.get('view');
+  const reopenId = this.route.snapshot.queryParamMap.get('reopen');
+
+  if (requestedView === 'imported') {
+    this.viewMode = 'imported';
   }
 
+  this.opportunitiesService.syncCleanup().subscribe({
+    next: () => {
+      this.loadCurrentView(reopenId ? Number(reopenId) : undefined);
+    },
+    error: (err) => {
+      console.error('Erreur sync cleanup:', err);
+      this.loadCurrentView(reopenId ? Number(reopenId) : undefined);
+    }
+  });
+}
   switchView(mode: 'not-imported' | 'imported'): void {
     if (this.viewMode === mode) return;
     this.viewMode = mode;
@@ -42,13 +50,13 @@ export class AuditsTableComponent implements OnInit {
     this.loadCurrentView();
   }
 
-  loadCurrentView(): void {
-    if (this.viewMode === 'not-imported') {
-      this.loadOpportunities();
-    } else {
-      this.loadImportedOpportunities();
-    }
+ loadCurrentView(reopenId?: number): void {
+  if (this.viewMode === 'not-imported') {
+    this.loadOpportunities();
+  } else {
+    this.loadImportedOpportunities(reopenId);
   }
+}
 
   loadOpportunities(): void {
     this.opportunitiesService.getOpportunities().subscribe({
@@ -65,22 +73,28 @@ export class AuditsTableComponent implements OnInit {
       }
     });
   }
+loadImportedOpportunities(reopenId?: number): void {
+  this.opportunitiesService.getImportedOpportunities().subscribe({
+    next: (data) => {
+      this.opportunities = data;
+      this.loading = false;
+      this.cdr.detectChanges();
 
-  loadImportedOpportunities(): void {
-    this.opportunitiesService.getImportedOpportunities().subscribe({
-      next: (data) => {
-        this.opportunities = data;
-        this.loading = false;
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        this.error = 'Erreur lors du chargement des données.';
-        this.loading = false;
-        this.cdr.detectChanges();
-        console.error(err);
+      if (reopenId) {
+        const opp = this.opportunities.find(o => o.opportunity_id === reopenId);
+        if (opp) {
+          this.onEditClick(opp);
+        }
       }
-    });
-  }
+    },
+    error: (err) => {
+      this.error = 'Erreur lors du chargement des données.';
+      this.loading = false;
+      this.cdr.detectChanges();
+      console.error(err);
+    }
+  });
+}
 
   onImport(opportunityId: number): void {
     this.opportunitiesService.importOpportunity(opportunityId).subscribe({
@@ -118,12 +132,20 @@ closeEditModal(): void {
 saveProtectionNeeds(): void {
   if (!this.editingOpportunityId || !this.selectedProtectionNeeds) return;
 
-  this.opportunitiesService.updateProtectionNeeds(this.editingOpportunityId, this.selectedProtectionNeeds).subscribe({
+  const savedRaw = sessionStorage.getItem(`unchecked_categories_${this.editingOpportunityId}`);
+  const uncheckedCategoryIds: number[] = savedRaw ? JSON.parse(savedRaw) : [];
+
+  this.opportunitiesService.updateProtectionNeeds(
+    this.editingOpportunityId,
+    this.selectedProtectionNeeds,
+    uncheckedCategoryIds
+  ).subscribe({
     next: () => {
       const opp = this.opportunities.find(o => o.opportunity_id === this.editingOpportunityId);
       if (opp) {
         opp.audits.protection_needs = this.selectedProtectionNeeds;
       }
+      sessionStorage.removeItem(`unchecked_categories_${this.editingOpportunityId}`);
       this.closeEditModal();
       this.cdr.detectChanges();
     },

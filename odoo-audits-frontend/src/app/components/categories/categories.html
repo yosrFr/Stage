@@ -23,8 +23,12 @@
           [checked]="cat.checked"
           (change)="toggleCheck(cat)"
         />
-        <span>{{ cat.category_name }}</span>
+        <span>{{ cat.display_id }}- {{ cat.category_name }}</span>
       </label>
     </li>
   </ul>
+
+  <div *ngIf="!loading && !error" class="save-bar">
+    <button class="btn-save-categories" (click)="onSave()">Save</button>
+  </div>
 </div>
