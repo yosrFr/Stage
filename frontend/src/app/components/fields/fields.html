@@ -1,0 +1,305 @@
+<div class="fields-container">
+  <h1>Report Customizing</h1>
+
+  <form [formGroup]="form">
+
+    <!-- Images -->
+    <div class="section">
+      <div class="image-field">
+        <label>Background</label>
+        <input type="file" accept="image/*" (change)="onImageSelected($event, 'background')">
+        <img *ngIf="imagePreviews['background']" [src]="imagePreviews['background']" class="preview">
+      </div>
+
+      <div class="image-field">
+        <label>Cover Page Logo</label>
+        <input type="file" accept="image/*" (change)="onImageSelected($event, 'cover_page_logo')">
+        <img *ngIf="imagePreviews['cover_page_logo']" [src]="imagePreviews['cover_page_logo']" class="preview">
+      </div>
+
+      <div class="image-field">
+        <label>Header Logo</label>
+        <input type="file" accept="image/*" (change)="onImageSelected($event, 'header_logo')">
+        <img *ngIf="imagePreviews['header_logo']" [src]="imagePreviews['header_logo']" class="preview">
+      </div>
+
+      <div class="image-field">
+        <label>Last Page Background</label>
+        <input type="file" accept="image/*" (change)="onImageSelected($event, 'last_page_background')">
+        <img *ngIf="imagePreviews['last_page_background']" [src]="imagePreviews['last_page_background']" class="preview">
+      </div>
+    </div>
+
+    <!-- Web page link -->
+    <div class="section">
+      <label>Web Page Link</label>
+      <input type="text" formControlName="web_page_link" placeholder="https://...">
+    </div>
+
+    <!-- Disable page toggles -->
+    <div class="section" formGroupName="disable_page">
+      <h2>Disable Page</h2>
+
+      <div class="toggle-row">
+        <span>Evaluation Results Summary</span>
+        <label class="switch">
+          <input type="checkbox" formControlName="evaluation_results_summary">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <span>Risk Level Distribution</span>
+        <label class="switch">
+          <input type="checkbox" formControlName="risk_level_dist">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <span>Maturity Level Assessment</span>
+        <label class="switch">
+          <input type="checkbox" formControlName="maturity_level_assessment">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <span>List Non Conformity</span>
+        <label class="switch">
+          <input type="checkbox" formControlName="list_non_conformity">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Abbreviations table -->
+    <div class="section">
+      <h2>List Abbreviation</h2>
+
+      <table formArrayName="list_abbreviation">
+        <thead>
+          <tr>
+            <th>Abbreviation</th>
+            <th>Description</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of abbreviations.controls; let i = index" [formGroupName]="i">
+            <td><input type="text" formControlName="abbreviation"></td>
+            <td><input type="text" formControlName="description"></td>
+            <td><button type="button" (click)="removeAbbreviationRow(i)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" (click)="addAbbreviationRow()">+ Add Row</button>
+    </div>
+
+    <!-- Maturity levels -->
+    <div class="section">
+      <h2>Maturity Levels</h2>
+
+      <div formArrayName="maturity_levels">
+        <div *ngFor="let row of maturityLevels.controls; let i = index" [formGroupName]="i" class="maturity-row">
+          <input type="text" formControlName="name" placeholder="Name">
+          <input type="color" formControlName="color">
+          <input type="text" formControlName="description" placeholder="Description">
+          <button type="button" (click)="removeMaturityLevelRow(i)">Remove</button>
+        </div>
+      </div>
+
+      <button type="button" (click)="addMaturityLevelRow()">+ Add Level</button>
+    </div>
+    <!-- Risk levels -->
+<div class="section">
+  <h2>Risk Levels</h2>
+
+  <div formArrayName="risk_levels">
+    <div *ngFor="let row of riskLevels.controls; let i = index" [formGroupName]="i" class="maturity-row">
+      <input type="text" formControlName="name" placeholder="Name">
+      <input type="color" formControlName="color">
+      <input type="text" formControlName="description" placeholder="Description">
+      <button type="button" (click)="removeRiskLevelRow(i)">Remove</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="addRiskLevelRow()">+ Add Risk Level</button>
+</div>
+
+<!-- Long text sections -->
+<div class="section">
+  <h2>Initiation</h2>
+  <textarea formControlName="initiation" rows="3" placeholder="Enter text..."></textarea>
+</div>
+
+<div class="section">
+  <h2>Introduction</h2>
+  <textarea formControlName="introduction" rows="3" placeholder="Enter text..."></textarea>
+</div>
+
+<div class="section">
+  <h2>Organisation</h2>
+  <textarea formControlName="organisation" rows="3" placeholder="Enter text..."></textarea>
+</div>
+
+<!-- Short titles -->
+<div class="section">
+  <h2>Overall Summary Chart Title</h2>
+  <input type="text" formControlName="overall_summary_chart_title" placeholder="Enter title...">
+</div>
+
+<div class="section">
+  <h2>Maturity Assessment Section Title</h2>
+  <input type="text" formControlName="maturity_assessment_section_title" placeholder="Enter title...">
+</div>
+
+<div class="section">
+  <h2>Maturity Assessment Chart Title</h2>
+  <input type="text" formControlName="maturity_assessment_chart_title" placeholder="Enter title...">
+</div>
+
+<!-- Text style groups -->
+<div class="section" formGroupName="report_title">
+  <h2>Report Title</h2>
+  <div class="style-row">
+    <div class="style-field">
+      <label>Font Family</label>
+      <select formControlName="font_family">
+        <option value="Montserrat Bold">Montserrat Bold</option>
+        <option value="Montserrat SemiBold">Montserrat SemiBold</option>
+        <option value="Poppins">Poppins</option>
+      </select>
+    </div>
+    <div class="style-field">
+      <label>Font Color</label>
+      <input type="color" formControlName="font_color">
+    </div>
+    <div class="style-field">
+      <label>Font Size</label>
+      <input type="number" formControlName="font_size">
+    </div>
+  </div>
+</div>
+
+<div class="section" formGroupName="header1">
+  <h2>Header 1</h2>
+  <div class="style-row">
+    <div class="style-field">
+      <label>Font Family</label>
+      <select formControlName="font_family">
+        <option value="Montserrat Bold">Montserrat Bold</option>
+        <option value="Montserrat SemiBold">Montserrat SemiBold</option>
+        <option value="Poppins">Poppins</option>
+      </select>
+    </div>
+    <div class="style-field">
+      <label>Font Color</label>
+      <input type="color" formControlName="font_color">
+    </div>
+    <div class="style-field">
+      <label>Font Size</label>
+      <input type="number" formControlName="font_size">
+    </div>
+  </div>
+</div>
+
+<div class="section" formGroupName="header2">
+  <h2>Header 2</h2>
+  <div class="style-row">
+    <div class="style-field">
+      <label>Font Family</label>
+      <select formControlName="font_family">
+        <option value="Montserrat Bold">Montserrat Bold</option>
+        <option value="Montserrat SemiBold">Montserrat SemiBold</option>
+        <option value="Poppins">Poppins</option>
+      </select>
+    </div>
+    <div class="style-field">
+      <label>Font Color</label>
+      <input type="color" formControlName="font_color">
+    </div>
+    <div class="style-field">
+      <label>Font Size</label>
+      <input type="number" formControlName="font_size">
+    </div>
+  </div>
+</div>
+
+<div class="section" formGroupName="header3">
+  <h2>Header 3</h2>
+  <div class="style-row">
+    <div class="style-field">
+      <label>Font Family</label>
+      <select formControlName="font_family">
+        <option value="Montserrat Bold">Montserrat Bold</option>
+        <option value="Montserrat SemiBold">Montserrat SemiBold</option>
+        <option value="Poppins">Poppins</option>
+      </select>
+    </div>
+    <div class="style-field">
+      <label>Font Color</label>
+      <input type="color" formControlName="font_color">
+    </div>
+    <div class="style-field">
+      <label>Font Size</label>
+      <input type="number" formControlName="font_size">
+    </div>
+  </div>
+</div>
+
+<div class="section" formGroupName="text">
+  <h2>Text</h2>
+  <div class="style-row">
+    <div class="style-field">
+      <label>Font Family</label>
+      <select formControlName="font_family">
+        <option value="Montserrat Bold">Montserrat Bold</option>
+        <option value="Montserrat SemiBold">Montserrat SemiBold</option>
+        <option value="Poppins">Poppins</option>
+      </select>
+    </div>
+    <div class="style-field">
+      <label>Font Color</label>
+      <input type="color" formControlName="font_color">
+    </div>
+    <div class="style-field">
+      <label>Font Size</label>
+      <input type="number" formControlName="font_size">
+    </div>
+  </div>
+</div>
+
+<!-- Colors -->
+<div class="section">
+  <h2>Table Header Background Color</h2>
+  <input type="color" formControlName="table_header_bg_color">
+</div>
+
+<div class="section" formGroupName="audit_report_colors">
+  <h2>Audit Report Colors</h2>
+  <div class="style-row">
+    <div>
+      <label>Color 1</label>
+      <input type="color" formControlName="color_1">
+    </div>
+    <div>
+      <label>Color 2</label>
+      <input type="color" formControlName="color_2">
+    </div>
+  </div>
+</div>
+
+<!-- Gradient toggle -->
+<div class="section">
+  <div class="toggle-row">
+    <span>Gradient</span>
+    <label class="switch">
+      <input type="checkbox" formControlName="gradient">
+      <span class="slider"></span>
+    </label>
+  </div>
+</div>
+  </form>
+</div>

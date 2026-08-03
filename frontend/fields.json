@@ -1,0 +1,124 @@
+{
+  "background": "data:image/png;base64,/9j/",
+  "cover_page_logo": "data:image/png;base64",
+"header_logo": "data:image/png;base64",
+  "web_page_link": "www.schoenbrunn-tasc.de",
+  "last_page_background": "data:image/png;base64",
+  "disable_page": {
+    "evaluation_results_summary": true,
+    "risk_level_dist": true,
+    "maturity_level_assessment": true,
+    "list_non_conformity": true
+  },
+  "list_abbreviation": [
+    {
+      "abbreviation": "TISAX",
+      "description": "Trusted Information Security Assessment Exchange"
+    },
+    {
+      "abbreviation": "BSI",
+      "description": "Bundesamt für Sicherheit in der Informationstechnik"
+    }
+  ],
+  "maturity_levels": [
+    {
+      "name": "incomplete",
+      "id": 0,
+      "color": "#DC3545",
+      "description": "A process does not exist, is not followed or not suitable to achieve the objective."
+    },
+    {
+      "name": "performed",
+      "id": 1,
+      "color": "#FD7E14",
+      "description": "A process is followed which is not or insufficiently documented (“informal process”) and there is some evidence that it achieves its objective."
+    },
+    {
+      "name": "managed",
+      "id": 2,
+      "color": "#FFC107",
+      "description": "A process achieving its objectives is followed. Process documentation and process implementation evidence are available."
+    },
+    {
+      "name": "established",
+      "id": 3,
+      "color": "#20C997",
+      "description": "A standard process integrated into the overall system is followed. Dependencies on other processes are documented and suitable interfaces are created. Evidence exists that the process has been used sustainably and actively over an extended period."
+    },
+    {
+      "name": "predictable",
+      "id": 4,
+      "color": "#0DCAF0",
+      "description": "An established process is followed. The effectiveness of the process is continually monitored by collecting key figures. Limit values are defined at which the process is considered to be insufficiently effective and requires adjustment. (Key Performance Indicators)."
+    },
+    {
+      "name": "optimized",
+      "id": 5,
+      "color": "#198754",
+      "description": "A predictable process with continual improvement as a major objective is followed. Improvement is actively advanced by means of dedicated resources."
+    }
+  ],
+  "risk_levels": [
+    {
+      "name": "high",
+      "id": 3,
+      "color": "#dc3545",
+      "description": "Severe risk exposure. Immediate action required. Critical vulnerabilities or major non-compliance that threaten business operations or sensitive assets."
+    },
+    {
+      "name": "medium",
+      "id": 2,
+      "color": "#fd7e14",
+      "description": "Moderate risk. Action needed in the near term. Not immediately critical, but could impact business or compliance if unaddressed."
+    },
+    {
+      "name": "low",
+      "id": 1,
+      "color": "#f3d849",
+      "description": "Minor risk. Monitor regularly. Limited impact, often procedural or cosmetic. No immediate threat to business or compliance."
+    },
+    {
+      "name": "none",
+      "id": 0,
+      "color": "#A2A9B0",
+      "description": "No risk identified. No action required. No impact on business operations, security, or compliance."
+    }
+  ],
+  "initiation": "<p>This document records the results of the internal audit at <strong>{{ COMPANY_NAME }}</strong>, conducted in accordance with the auditing principles defined in <strong>ISO 19011:2018</strong>. The audit methodology is aligned with recognized best practices and the recommendations of the <strong>BSI (Bundesamt für Sicherheit in der Informationstechnik)</strong> for management system audits and information security assessments.</p>",
+  "introduction": "<p>This report presents the results of the audit commissioned by <strong>{{ COMPANY_NAME }}</strong>, conducted on <strong>{{ START_DATE }}</strong> at <strong>{{ COMPANY_ADDRESS }}</strong>.</p>\n    <p>The audit was performed objectively and independently, in line with established auditing standards. Its primary objective was to evaluate the <strong>effectiveness, adequacy, and conformity</strong> of the management system and implemented controls, as well as to determine the risk level of the organization.</p>\n    <p>Depending on the selected scope, the audit criteria were based on one or more of the following frameworks:</p>\n    <ul>\n      <li><strong>{{ NORM_NAME }} : {{ NORM_PUBLISH_YEAR }}</strong> - {{ NORM_ABBREVIATION }}</li>\n    </ul>",
+  "organisation": "  <ul>\n    <li>On-site audit activities were carried out as planned. The contact persons for all relevant topics were available, as planned during audit preparation.</li>\n    <li>All important aspects of information security management were addressed during the audit, as they were part of the defined and agreed scope of the audit.</li>\n    <li>On-site activities focused on interviews with the named individuals and walk-throughs. Explicit references were partially reviewed. References to additional documents were not reviewed for content.</li>\n    <li>There was a good and open atmosphere in the audit interviews with all participants.</li>\n  </ul>",
+  "overall_summary_chart_title": "Overall Summary of Evaluation Results - TISAX Maturity Levels",
+  "maturity_assessment_section_title": "MATURITY LEVEL ASSESSMENT",
+  "maturity_assessment_chart_title": "Maturity Level Assessment",
+  "report_title": {
+    "font_family": "Montserrat Bold",
+    "font_color": "#32fae6",
+    "font_size": "55px"
+  },
+  "header1": {
+    "font_family": "Montserrat SemiBold",
+    "font_color": "#000028",
+    "font_size": "22px"
+  },
+  "header2": {
+    "font_family": "Montserrat SemiBold",
+    "font_color": "#000028",
+    "font_size": "20px"
+  },
+  "header3": {
+    "font_family": "Montserrat SemiBold",
+    "font_color": "#000028",
+    "font_size": "15px"
+  },
+  "text": {
+    "font_family": "Poppins",
+    "font_color": "#000028",
+    "font_size": "12px"
+  },
+  "table_header_bg_color": "#000028",
+  "audit_report_colors": {
+    "color_1": "#000028",
+    "color_2": "#32fae6"
+  },
+  "gradient": true
+}
