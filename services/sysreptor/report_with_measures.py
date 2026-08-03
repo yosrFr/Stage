@@ -11,22 +11,29 @@ load_dotenv()
 reptor = Reptor(
     server=os.getenv("REPTOR_SERVER"),
     token=os.getenv("REPTOR_TOKEN"),
-    project_id="8b4072d3-2e3e-4c71-9812-6bc81d0cd1b5",
+    project_id="265623af-a1a9-4b23-881a-aa3fac05a2f6",
 )
 
 # load report data from json file
 with open("../../test_input_files/report_data.json", "r", encoding="utf-8") as f:
-    fields = json.load(f)
+    report_data = json.load(f)
+
+with open("../../test_input_files/style.json", "r", encoding="utf-8") as f:
+    report_style = json.load(f)
 
 # update the report section of the project
 reptor.api.projects.update_section(
     section_id="report",
-    data={"data": fields}
+    data={"data": report_data}
+)
+reptor.api.projects.update_section(
+    section_id="design",
+    data={"data": report_style}
 )
 
 # render the project into a PDF document
 pdf = reptor.api.projects.render()
 
 # save the generated PDF
-with open("../../exports/report.pdf", "wb") as f:
+with open("../../exports/audit_report_with_measures.pdf", "wb") as f:
     f.write(pdf)
