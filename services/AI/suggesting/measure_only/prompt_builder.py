@@ -24,7 +24,7 @@ def detect_language(text: str) -> str:
 
     return lang
 
-def build_rewrite_prompt(text: str) -> str:
+def build_suggestion_prompt(text: str) -> str:
 
     if detect_language(text) == "de":
         return textwrap.dedent(f"""\
@@ -123,7 +123,7 @@ def build_rewrite_prompt(text: str) -> str:
 
     Critical rules:
     - Base the measure ONLY on facts explicitly stated in the finding. Do not add numbers, thresholds, named controls (e.g., "immutability," "inventory management system"), technologies, or standards that the finding does not mention.
-    - If the finding contains a specific number (e.g., "six characters"), your measure must NOT include any number — not the same one, not a different one. Describe the required change in words only.
+    - If the finding contains a specific number (e.g., "six characters"), your measure must NOT include any number, not the same one, not a different one. Describe the required change in words only.
     - Before writing your final answer, check silently: (1) is every specific noun or number in my measure also present in the finding? (2) is my measure in the same language as the finding? If either check fails, correct it.
 
     Finding: {text}

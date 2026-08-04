@@ -1,5 +1,5 @@
 from services.AI.ollama_client import generate_text
-from services.AI.suggesting.prompt_builder import build_rewrite_prompt
+from services.AI.suggesting.measure_only.prompt_builder import build_suggestion_prompt
 
 
 def suggest_text(text: str) -> str:
@@ -9,7 +9,7 @@ def suggest_text(text: str) -> str:
     sends it to Ollama
     and cleans the response before returning
     """
-    prompt = build_rewrite_prompt(text)
+    prompt = build_suggestion_prompt(text)
     result = generate_text(prompt)
 
     result = result.strip()
