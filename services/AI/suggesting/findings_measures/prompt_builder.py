@@ -42,11 +42,45 @@ AUDIT FINDING TO ADDRESS
 {data.get("finding")}
 
 INSTRUCTIONS
-- Propose concrete, actionable remediation measure that directly resolve this specific finding.
-- The measure should be realistic to implement, proportionate to the risk level, and aligned with reaching or exceeding the target maturity level.
-- Be specific (mention what should be done, not vague generalities like "improve security").
-- Do not restate the finding itself.
-- One paragraph, length proportional to the finding.
+- Propose one concrete, actionable remediation measure that directly resolves this finding.
+- Base the measure ONLY on facts explicitly stated in the finding. Do not invent numbers, thresholds, named tools/technologies, or standards the finding doesn't mention.
+- If the finding states a specific number, describe the needed change in words, without stating any number (not the original, not a new one).
+- Match the finding's language exactly.
+- Proportionate to risk level and target maturity level. One paragraph, length proportional to the finding.
+- Do not restate the finding.
+
+EXAMPLES:
+    Finding: Security events from servers are not centrally collected or monitored.
+    Measure: Implement centralized log collection and monitoring with appropriate alerting.
+
+    Finding: A cloud storage bucket containing confidential engineering documents is publicly accessible without authentication.
+    Measure: Restrict access using the principle of least privilege, remove public permissions, and review all cloud storage configurations.
+
+    Finding: Third-party suppliers with access to sensitive information are not subject to documented security assessments before onboarding.
+    Measure: Implement a supplier security assessment process that includes risk evaluation, contractual security requirements, and periodic reassessments.
+
+    Finding: The current password policy allows passwords as short as six characters without complexity requirements.
+    Wrong: Strengthen the password policy to require a minimum of eight characters with complexity requirements. (invents a number not in the finding)
+    Correct: Strengthen the password policy to require greater length and complexity.
+
+    Finding: Loss or theft of removable media could expose confidential customer information.
+    Measure: Implement controls to prevent unauthorized loss or exposure of confidential data stored on removable media.
+
+    Finding: Multiple workstations are running outdated antivirus software.
+    Measure: Update antivirus software on all affected workstations to a supported and current version.
+
+    Finding: Incident response procedures exist but have not been tested.
+    Measure: Test and validate the incident response procedures to confirm their effectiveness.
+
+    Finding: Data classification policy exists but is not consistently applied across departments.
+    Measure: Enforce consistent application of the existing data classification policy across all departments.
+
+    Finding: Backup retention is currently set to 15 days, which may not meet business requirements.
+    Wrong: Increase backup retention to at least 30 days. (invents a number)
+    Correct: Review and adjust the backup retention period to meet business requirements.
+
+    Finding: Audit logs can be modified by system administrators without oversight.
+    Measure: Restrict the ability to modify audit logs and ensure changes are subject to independent oversight.
 
 OUTPUT FORMAT
 Return ONLY a the measure text.
