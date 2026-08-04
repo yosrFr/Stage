@@ -7,6 +7,7 @@ from api.routes.export import router as export_router
 from api.routes.import_data import router as import_router
 from api.routes.measure_suggestion import router as measure_suggestion_router
 from api.routes.categories_router import router as categories_router
+from api.routes.report_config_router import router as report_config_router
 
 
 
@@ -14,7 +15,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],
+    allow_origins=["http://localhost:4200", "http://localhost:4300"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,3 +27,4 @@ app.include_router(categories_router)
 app.include_router(import_router)
 app.include_router(measure_suggestion_router)
 app.include_router(opportunities_router)
+app.include_router(report_config_router)

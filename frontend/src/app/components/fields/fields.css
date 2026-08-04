@@ -293,3 +293,87 @@ input[type="file"]::file-selector-button {
 input[type="file"]::file-selector-button:hover {
   background-color: #1a1a4a;
 }
+.save-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.save-message {
+  color: #1a7a4c;
+  font-weight: 500;
+}
+
+.save-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+.btn-cancel,
+.btn-save {
+  padding: 11px 26px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: #000028;
+  border: 1.5px solid #000028;
+}
+
+.btn-cancel:hover {
+  background-color: #000028;
+  color: #ffffff;
+}
+
+.btn-save {
+  background-color: #32fae6;
+  color: #000028;
+  border: none;
+  box-shadow: 0 2px 6px rgba(50, 250, 230, 0.4);
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: #1fe0cc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(50, 250, 230, 0.5);
+}
+
+.btn-save:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.family-selector {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.family-selector label {
+  font-weight: 600;
+  color: #000028;
+  min-width: 120px;
+}
+
+.family-selector select {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #000028;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000028;
+  background-color: #fff;
+}
+

@@ -1,5 +1,11 @@
 <div class="fields-container">
   <h1>Report Customizing</h1>
+  <div class="section family-selector">
+  <label>Norm Family</label>
+  <select [(ngModel)]="selectedFamilyNormId" [ngModelOptions]="{standalone: true}" (change)="onFamilyNormChange()">
+    <option *ngFor="let fn of familyNorms" [value]="fn.family_norm_id">{{ fn.name }}</option>
+  </select>
+</div>
 
   <form [formGroup]="form">
 
@@ -299,6 +305,15 @@
       <input type="checkbox" formControlName="gradient">
       <span class="slider"></span>
     </label>
+  </div>
+</div>
+<div class="section save-section">
+  <span *ngIf="saveMessage" class="save-message">{{ saveMessage }}</span>
+  <div class="save-actions">
+    <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+    <button type="button" class="btn-save" (click)="onSave()" [disabled]="saving">
+      {{ saving ? 'Saving...' : 'Save' }}
+    </button>
   </div>
 </div>
   </form>
