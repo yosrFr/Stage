@@ -255,4 +255,4 @@ def markdown_to_json(file_path):
         json.dump(chapter_languages, f, indent=2, ensure_ascii=False)
 
 
-markdown_to_json("../../exports/IT_Grundschutz_Kompendium_Edition2023_filtered.md")
+markdown_to_json("output/IT_Grundschutz_Kompendium_Edition2023_filtered.md")

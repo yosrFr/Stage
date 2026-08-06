@@ -84,8 +84,8 @@ def extract_specific_section(
 
 
 extract_specific_section(
-    "../../exports/IT_Grundschutz_Kompendium_Edition2023.md",
-    "../../exports/IT_Grundschutz_Kompendium_Edition2023_filtered.md",
+    "output/IT_Grundschutz_Kompendium_Edition2023.md",
+    "output/IT_Grundschutz_Kompendium_Edition2023_filtered.md",
     "**ISMS: Sicherheitsmanagement**",
     "**3.1. Basis-Anforderungen**",
     "**3.2. Standard-Anforderungen**",

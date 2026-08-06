@@ -170,7 +170,7 @@ def get_all_norm_info(norm_id):
 
 norm_json = get_all_norm_info(5)
 
-with open("../exports/exported_norm_BSI.json", "w", encoding="utf-8") as f:
+with open("output/exported_norm_BSI.json", "w", encoding="utf-8") as f:
     json.dump(norm_json, f, indent=4, ensure_ascii=False)
 
 print("JSON generated successfully")
