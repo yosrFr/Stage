@@ -1,6 +1,5 @@
 import json
 
-from scripts.seed import family_norms
 
 def load_json(filename):
     with open(f"{filename}", "r", encoding="utf-8") as f:
@@ -8,22 +7,22 @@ def load_json(filename):
 
 
 # Load all tables
-norms = load_json("../data/BSI_json/norm.json")
-family_norms = load_json("../data/BSI_json/family_norm.json")
+norms = load_json("../../data/BSI_json/norm.json")
+family_norms = load_json("../../data/BSI_json/family_norm.json")
 
-categories = load_json("../data/BSI_json/categories.json")
-category_languages = load_json("../data/BSI_json/category_languages.json")
+categories = load_json("../../data/BSI_json/categories.json")
+category_languages = load_json("../../data/BSI_json/category_languages.json")
 
-chapters = load_json("../data/BSI_json/chapters.json")
-chapter_languages = load_json("../data/BSI_json/chapter_languages.json")
+chapters = load_json("../../data/BSI_json/chapters.json")
+chapter_languages = load_json("../../data/BSI_json/chapter_languages.json")
 
-controls = load_json("../data/BSI_json/controls.json")
-control_languages = load_json("../data/BSI_json/control_languages.json")
+controls = load_json("../../data/BSI_json/controls.json")
+control_languages = load_json("../../data/BSI_json/control_languages.json")
 
-control_tags = load_json("../data/BSI_json/control_tag.json")
-control_tag_languages = load_json("../data/BSI_json/control_tag_language.json")
+control_tags = load_json("../../data/BSI_json/control_tag.json")
+control_tag_languages = load_json("../../data/BSI_json/control_tag_language.json")
 
-languages = load_json("../data/TISAX/languages.json")
+languages = load_json("../../data/TISAX/languages.json")
 
 
 def get_language(language_id):
@@ -133,11 +132,13 @@ def get_norm_controls(norm_id):
 
     return result
 
+
 def get_family_norm(id):
     return next(
         (f for f in family_norms if f["family_norm_id"] == id),
         None
     )
+
 
 def get_all_norm_info(norm_id):
     norm = next(

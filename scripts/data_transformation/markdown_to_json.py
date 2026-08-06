@@ -99,9 +99,9 @@ def markdown_to_json(file_path):
                 }
 
                 # Avoid duplicate entries if the same category id already exists
-                if not any(obj["id"] == category["id"] for obj in categories):
-                    categories.append(category)
-                    category_id += 1
+                # if not any(obj["id"] == category["id"] for obj in categories):
+                categories.append(category)
+                category_id += 1
 
                 name = " ".join(current_category.split(" ")[1:])[:-2]
 
@@ -112,8 +112,8 @@ def markdown_to_json(file_path):
                 }
 
                 # Avoid duplicate entries if the same category_language name already exists
-                if not any(obj["category_name"] == category_language["category_name"] for obj in category_languages):
-                    category_languages.append(category_language)
+                # if not any(obj["category_name"] == category_language["category_name"] for obj in category_languages):
+                category_languages.append(category_language)
 
                 bol_chapter = False
                 bol_control = False
@@ -133,9 +133,9 @@ def markdown_to_json(file_path):
                 }
 
                 # Avoid duplicate entries if the same chapter id already exists
-                if not any(obj["id"] == chapter["id"] for obj in chapters):
-                    chapters.append(chapter)
-                    chapter_id += 1
+                # if not any(obj["id"] == chapter["id"] for obj in chapters):
+                chapters.append(chapter)
+                chapter_id += 1
 
                 title = current_chapter.split(" ")[1][:-2]
 
@@ -146,8 +146,8 @@ def markdown_to_json(file_path):
                 }
 
                 # Avoid duplicate entries if the same chapter_language title already exists
-                if not any(obj["chapter_id"] == chapter_language["chapter_id"] for obj in chapter_languages):
-                    chapter_languages.append(chapter_language)
+                # if not any(obj["chapter_id"] == chapter_language["chapter_id"] for obj in chapter_languages):
+                chapter_languages.append(chapter_language)
 
                 # We're inside a chapter
                 bol_chapter = True
@@ -168,8 +168,8 @@ def markdown_to_json(file_path):
                 }
 
                 # Avoid duplicate entries if the same control id already exists
-                if not any(obj["id"] == control["id"] for obj in controls):
-                    controls.append(control)
+                # if not any(obj["id"] == control["id"] for obj in controls):
+                controls.append(control)
 
                 control_language = {
                     "language_id": 2,
@@ -178,9 +178,9 @@ def markdown_to_json(file_path):
                 }
 
                 # Avoid duplicate entries if the same control_language title already exists
-                if not any(obj["title"] == control_language["title"] for obj in control_languages):
-                    control_languages.append(control_language)
-                    control_id += 1
+                # if not any(obj["title"] == control_language["title"] for obj in control_languages):
+                control_languages.append(control_language)
+                control_id += 1
 
                 # We're inside control
                 bol_control = True
