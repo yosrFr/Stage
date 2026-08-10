@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class AssistRequest(BaseModel):
@@ -7,4 +7,4 @@ class AssistRequest(BaseModel):
 
 class FollowupRequest(BaseModel):
     session_id: str
-    question: str
+    question: str = Field(..., min_length=1, max_length=2000)
