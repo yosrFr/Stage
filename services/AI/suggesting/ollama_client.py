@@ -6,7 +6,7 @@ DEFAULT_MODEL = "mistral-nemo"
 SEED = 42
 
 
-def generate_finding_text(prompt: str) -> str:
+def generate_text(prompt: str) -> str:
     response = requests.post(
         OLLAMA_URL,
         json={
