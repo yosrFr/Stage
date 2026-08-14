@@ -3,3 +3,22 @@
 *.py[cod]
 *.pyo
 *.pyd
+
+# idea folder
+.idea
+
+# dotenv
+.env
+
+# Data folders
+data
+exports
+test_input_files
+**/input
+**/output
+
+# Logs
+*.log
+
+# SQL
+*.sql
