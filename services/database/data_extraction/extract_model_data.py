@@ -22,11 +22,15 @@ def get_model_data(db):
 
         control_language = get_control_language(db, question_response.control_id, lang)
 
+        data["norm_title"] = question_response.audit.norm.title
+
         data["control_title"] = control_language.title
+        data["control_description"] = control_language.description
         data["language"] = control_language.languages.language
 
         data["risk_level"] = question_response.risk_level
-        data["non_conformity"] = question_response.non_conformity
+        data["maturity_level"] = question_response.non_conformity
+        data["current_state"] = question_response.current_state
 
         questions_responses = []
 
