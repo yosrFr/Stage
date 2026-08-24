@@ -1,6 +1,6 @@
 import re
 
-from services.AI.ollama_client import generate_text
+from services.AI.paraphrasing.ollama_client import generate_text
 from services.AI.paraphrasing.prompt_builder import build_rewrite_prompt
 
 
