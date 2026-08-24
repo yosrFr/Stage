@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
-from services.AI.suggesting.rag.rag_sugg import shared_prompt_utils
-from services.AI.suggesting.rag.rag_sugg.measure_only.schema import MeasureGenerationRequest
+from services.AI.suggesting.rag import shared_prompt_utils
+from services.AI.suggesting.rag.measure_only.measure_rag_schema import MeasureGenerationRequest
 from services.AI.suggesting.rag.retrieval.retrieval_schemas import RetrievalResult
 
 SYSTEM_PROMPT = """You are an experienced information security auditor's assistant. Your job is to propose remediation MEASURES for a given audit finding.

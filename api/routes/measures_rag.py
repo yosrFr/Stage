@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, status
 
 from schema.rag_schema import MeasureGenerationResponse, build_retrieval_diagnostics
-from services.AI.suggesting.rag.rag_sugg.measure_only.rag_prompt_builder import build_measure_messages
-from services.AI.suggesting.rag.rag_sugg.measure_only.schema import MeasureBatchGenerationRequest
-from services.AI.suggesting.rag.rag_sugg.ollama_client import generate_completion, OllamaGenerationError
+from services.AI.suggesting.rag.measure_only.measure_rag_prompt_builder import build_measure_messages
+from services.AI.suggesting.rag.measure_only.measure_rag_schema import MeasureBatchGenerationRequest
+from services.AI.suggesting.rag.rag_ollama_client import generate_completion, OllamaGenerationError
 from services.AI.suggesting.rag.retrieval import retrieval_service
 from services.AI.suggesting.rag.retrieval.output_cleanup import strip_llm_formatting_artifacts
 

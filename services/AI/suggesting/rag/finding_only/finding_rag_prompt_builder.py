@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
-from services.AI.suggesting.rag.rag_sugg import shared_prompt_utils
-from services.AI.suggesting.rag.rag_sugg.finding_only.schema import FindingGenerationRequest
+from services.AI.suggesting.rag import shared_prompt_utils
+from services.AI.suggesting.rag.finding_only.finding_rag_schema import FindingGenerationRequest
 from services.AI.suggesting.rag.retrieval.retrieval_schemas import RetrievalResult
 
 SYSTEM_PROMPT = """You are an experienced information security auditor's assistant. Your job is to draft AUDIT FINDINGS for a given control, based strictly on the control's requirements and the auditee's current state.

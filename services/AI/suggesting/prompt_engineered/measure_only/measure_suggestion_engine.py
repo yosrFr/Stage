@@ -1,4 +1,4 @@
-from services.AI.suggesting.prompt_engineered.ollama_client import generate_text
+from services.AI.suggesting.prompt_engineered.pe_ollama_client import generate_text
 from services.AI.suggesting.prompt_engineered.measure_only.measure_prompt_builder import build_measure_suggestion_prompt
 
 

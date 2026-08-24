@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException, status
 
 from schema.rag_schema import FindingGenerationResponse, build_retrieval_diagnostics
-from services.AI.suggesting.rag.rag_sugg.finding_only.rag_prompt_builder import build_finding_messages
-from services.AI.suggesting.rag.rag_sugg.finding_only.schema import FindingGenerationRequest
-from services.AI.suggesting.rag.rag_sugg.list_output_parsing import parse_findings_list
-from services.AI.suggesting.rag.rag_sugg.ollama_client import generate_completion, OllamaGenerationError
+from services.AI.suggesting.rag.finding_only.finding_rag_prompt_builder import build_finding_messages
+from services.AI.suggesting.rag.finding_only.finding_rag_schema import FindingGenerationRequest
+from services.AI.suggesting.rag.list_output_parsing import parse_findings_list
+from services.AI.suggesting.rag.rag_ollama_client import generate_completion, OllamaGenerationError
 from services.AI.suggesting.rag.retrieval import retrieval_service
 
 router = APIRouter(prefix="/suggestion", tags=["rag_system"])
