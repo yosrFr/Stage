@@ -7,3 +7,7 @@ reptor
 python-dotenv
 langdetect
 pymupdf4llm
+pydantic
+beautifulsoup4
+chromadb
+sentence-transformers
