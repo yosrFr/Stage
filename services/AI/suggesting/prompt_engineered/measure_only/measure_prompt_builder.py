@@ -1,7 +1,5 @@
 import textwrap
 
-from helpers.language import detect_language
-
 
 def build_measure_suggestion_prompt_de(data: dict) -> str:
     return textwrap.dedent(f"""\
@@ -70,11 +68,11 @@ def build_measure_suggestion_prompt_de(data: dict) -> str:
         - Prüfen Sie vor der endgültigen Antwort still: (1) Kommt jedes konkrete Substantiv, jede Zahl oder jedes benannte System in meiner Maßnahme auch in der Feststellung vor? (2) Ist meine Antwort auf Deutsch? (3) Adressiert meine Maßnahme ausschließlich diese eine Feststellung, ohne Inhalte aus anderen Feststellungen oder nicht wiederholten Details des aktuellen Zustands einzubeziehen, und spiegelt sie eine in der Feststellung genannte Dringlichkeit angemessen wider? Falls eine dieser Prüfungen fehlschlägt, korrigieren Sie die Antwort.
 
         ZU ANALYSIERENDER KONTROLLKONTEXT
-        - Normfamilie: {data.get("norm_family")}
+        - Norm: {data.get("norm_title")}
         - Kontrolltitel: {data.get("control_title")}
         - Kontrollbeschreibung: {data.get("control_description")}
         - Risikostufe: {data.get("risk_level")}
-        - Reifegrad: {data.get("maturity_level")}
+        - Reifegrad: {data.get("non_conformity")}
         - Aktueller Zustand: {data.get("current_state")}
         - Feststellung: {data.get("finding")}
 
@@ -144,11 +142,11 @@ def build_measure_suggestion_prompt_en(data: dict) -> str:
     - Before writing your final answer, check silently: (1) is every specific noun, number, or named system in my measure also present in the finding? (2) is my measure in the same language as the finding? (3) does my measure address only this one finding — without pulling in content from other findings or unrepeated current-state details — and does it appropriately reflect any urgency stated in the finding? If any check fails, correct the answer.
 
     CONTROL CONTEXT TO ANALYZE NOW
-    - Norm family: {data.get("norm_family")}
+    - Norm: {data.get("norm_title")}
     - Control title: {data.get("control_title")}
     - Control description: {data.get("control_description")}
     - Risk level: {data.get("risk_level")}
-    - Maturity level: {data.get("maturity_level")}
+    - Maturity level: {data.get("non_conformity")}
     - Current state: {data.get("current_state")}
     - Finding: {data.get("finding")}
 
@@ -156,7 +154,6 @@ def build_measure_suggestion_prompt_en(data: dict) -> str:
 
 
 def build_measure_suggestion_prompt(data: dict) -> str:
-    text = data.get("current_state", "")
-    if detect_language(text) == "de":
+    if data.get("language") == 2:
         return build_measure_suggestion_prompt_de(data)
     return build_measure_suggestion_prompt_en(data)
